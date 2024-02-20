@@ -24,10 +24,10 @@
         </div>
         <div class="button">
             <button class="btn-ls">
-                <a href="../login/index.html">LogIn</a>
+                <a href="../login/index.php">LogIn</a>
             </button> 
             <button class="btn-ls">
-                <a href="../login/index.html">SignUp</a>
+                <a href="../login/index.php">SignUp</a>
             </button> 
         </div>
 
@@ -43,7 +43,7 @@
                 </div>
                 <!-- -0- -->
                 <button class="btn">
-                    <a href="../Find job!/index.html">Find a Job!</a>
+                    <a href="../Find job!/index.php">Find a Job!</a>
                 </button>                
             </div>
             <div class="kanan">
@@ -130,7 +130,7 @@
                 <li><a href="#first">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="/utama/index2.html">About me</a></li>
+                <li><a href="/utama/index2.php">About me</a></li>
             </ul>
             <div class="wer">
             <h3>Sumber!</h3>
