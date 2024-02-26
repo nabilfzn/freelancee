@@ -16,9 +16,9 @@
 
                 <div class="navlist">
                     <ul>
-                        <li><a href="../utama/index.php">Back</a></li>
+                        <li><a href="../akhirrrrrrrrrrrr/index.php">Back</a></li>
                         <li><a href="../login/index.php">Post</a></li>
-                        <li><a href="../login/index.php">LogIn</a></li>
+                        <li><a href="../akhirrrrrrrrrrrr/login/index.php">LogIn</a></li>
                     </ul>
                 </div>
         </div>

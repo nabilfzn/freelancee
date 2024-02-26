@@ -202,7 +202,7 @@ svg {
     outline: none;
     border: none;
     text-transform: capitalize;
-    background-color:  #eae3e0;
+    background-color:  #f2f2f2;
 }
 
 .containers .boxc .box img {
@@ -212,9 +212,13 @@ svg {
 }
 
 .containers {
-    height: 100vh;
+    height: 90vh;
     padding: 70px 9%;
     padding-bottom: 100px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 }
 
 
@@ -222,28 +226,27 @@ svg {
     text-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
     padding-bottom: 15px;
     color: black;
-    font-size: 50px;
+    font-size: 30px;
+    font-family: montserrat;
 }
 
 .containers .boxc {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 15px;   
+    grid-template-columns: repeat(auto-fit, minmax(270px, 4fr));
+    gap: 25px;   
     justify-content: center;
+    /* background-color: #0d6efd; */
 }
 
 .containers .boxc .box {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
     text-align: center;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 30px 20px;
-    transition: 0.1s;
+    transition: 0.6s;
 }
 
-.boxc.box h3 {
-    padding: 10px 90px;
-}
 
 .box p {
     font-size: 13px;
@@ -255,10 +258,12 @@ svg {
     /* background-color: #1E212D; */
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .box:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
 }
 
 footer {
