@@ -1,42 +1,53 @@
 <?php
  require 'koneksi.php';
+ session_start();
+
+if (isset($_SESSION['email'])) {
+    header("location: index.php");
+}
+
 
  if (isset($_POST["login"])) {
   
     $email = $_POST["email"];
     $password = $_POST["password"];
+    
 
     // pengambilan data dari database
  $result= mysqli_query ($conn, "SELECT * FROM user WHERE email = '$email'");
 
 //  pengecekan email
 if (mysqli_num_rows($result) === 1) {
-  
   // cek password
-  $row = mysqli_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
 
 
-  if ($password == $row["password"]) {
-    header("Location:../index.php");
+                if ($password == $row["password"]) {
+                    $_SESSION['email'] = $row['email'];
+                    $_SESSION['level'] = $row['level'];
+                    
+                    if ($row['level']== 'admin') {
+                        header("location: ../admin/dashboard.php");
 
-  } else {
-        echo '<script> 
-       alert("password atau email salah")
-       </script>';
+                    } else {
+                        header("location: ../index.php");
+                    }
 
-       exit;
-  }
+                } else {
+                        echo '<script> 
+                    alert("password atau email salah")
+                    </script>';
+
+                    exit;
+                }
     
-  }
+         
 
+ }
 
 }
-?>
 
-<!-- // if ( password_verify($password, $row["password"])) {
-  //   header("Location: index.php");
-  //   exit;
-  // } -->
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +55,7 @@ if (mysqli_num_rows($result) === 1) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="login.css">
+    <!-- <link rel="stylesheet" href="login.css"> -->
 </head>
 <body>
  <div class="box">

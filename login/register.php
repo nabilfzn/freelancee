@@ -4,9 +4,6 @@ require "koneksi.php";
 if( isset($_POST["signup"])) {
 
     if (signup($_POST) > 0 ) {
-    //    echo '<script> 
-    //    alert("register berhasil")
-    //    </script>';
     header("Location: login.php");
     
     } else {
@@ -25,7 +22,7 @@ if( isset($_POST["signup"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="register.css">
+    <!-- <link rel="stylesheet" href="register.css"> -->
 </head>
 <body>
     <div class="container">
@@ -36,29 +33,29 @@ if( isset($_POST["signup"])) {
                         <h1>Signup</h1>
                         <form action="" method="post">
                             <div class="txt">
-                                <input type="text" name="username" id="username" required;>
-                                <span></span>
                                 <label for="username">username</label>
+                                <span></span>
+                                <input type="text" name="username" id="username" required;>
                             </div>
                             <div class="txt">
-                                <input type="email" name="email" id="email" required;>
-                                <span></span>
                                 <label for="email">email</label>
+                                <span></span>
+                                <input type="email" name="email" id="email" required;>
                             </div>
                             <div class="txt">
-                                <input type="password" name="password" id="password" required;>
-                                <span></span>
                                 <label for="password">password</label>
+                                <span></span>
+                                <input type="password" name="password" id="password" required;>
                             </div>
                             <div class="txt">
-                                <input type="password" name="cpassword" id="cpassword" required;>
-                                <span></span>
                                 <label for="cpassword">konfirmasi password</label>
+                                <span></span>w  
+                                <input type="password" name="cpassword" id="cpassword" required;>
                             </div>
                             <div class="txt">
-                                <input type="text" name="telephone" id="telephone" required;>
-                                <span></span>
                                 <label for="text">telephone</label>
+                                <span></span>
+                                <input type="text" name="telephone" id="telephone" required;>
                             </div>
                             <div class="submit">
                                 <button type="submit" name="signup">

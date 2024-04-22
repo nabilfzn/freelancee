@@ -11,13 +11,12 @@ $conn = mysqli_connect ($server, $username, $password, $database_name);
 function signup($data) {
     global $conn;
 
-    $username = $data ["username"];
+    $username = $data["username"];
     $email = $data["email"];
     $password = $data["password"];
     $cpassword = $data["cpassword"];
-    $telephone = $data["telephone"];
-
-
+    $telephone = $data["telephone"] ;
+    $level = "user";
     // cek email
 
     $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email'");
@@ -41,11 +40,57 @@ function signup($data) {
 //  return 1;
 
 
-       mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$email', '$password', '$telephone')");
+       mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$email', '$password', '$telephone', '$level')");
 
        return mysqli_affected_rows($conn);
 
 }
+
+
+
+
+
+function create($data){
+    
+    global $conn;
+
+    $username = htmlspecialchars($data["username"]);
+    $email = htmlspecialchars($data["email"]);
+    $password = htmlspecialchars($data["password"]);
+    $telephone = htmlspecialchars($data["telephone"]);
+    $level = "user";
+
+    $query = "INSERT INTO user VALUES
+            ('', '$username', '$email', '$password', '$telephone', '$level')";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+
+function delete($id){
+
+    global $conn;
+
+    mysqli_query($conn, "DELETE from user where id = $id");
+    return mysqli_affected_rows($conn);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

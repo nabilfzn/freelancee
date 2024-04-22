@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: poppins;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* navigasi */
+
+.boxnav {
+    max-width: 80%;
+    /* background-color: #f9f9f9; */
+    margin: auto;    
+}
+
+.container {
+    max-width: 80%;
+    /* background-color: #f9f9f9; */
+    margin: auto;  
+}
+
+.container .boxnav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px 15px 0px;
+    /* background-color: #c6c4c4; */
+    align-items: center;
+}
+
+.container .boxnav .navbar ul {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.boxnav .logo {
+    font-size: 20px;
+}
+
+.navbar li {
+    list-style: none;
+    margin-right: 40px;
+}
+
+.navbar {
+    display: flex;
+} 
+
+.navbar a {
+    text-decoration: none;
+    font-size: 17px;
+    color: black;
+}
+
+.navbar a img {
+    width: 30px;
+}
+
+.navbar button {
+    border: none;
+}
+
+
+/* banner gambar */
+
+
+header {
+    height: 100vh;
+}
+
+
+.radius img {
+    display: block;
+    width: 100%;
+    height: 100px;
+    border-radius: inherit; /* Mewarisi radius dari container */
+}
+
+
+.banner {
+    width: 100%;
+    height: 80vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('https://cdn.pixabay.com/photo/2020/04/14/05/38/hand-5040992_640.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.content{
+
+    /* top: 50%; */
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    text-align: center;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #0d6efd; */
+    margin: auto;
+}
+
+.content h1 {
+    font-size: 50px;
+}
+
+.content p {
+    width: 500px;
+}
+
+.btn-kanan button {
+    
+
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0 56px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 7px;
+    font-weight: 400;
+    font-size: 16px;
+    background: #fff;
+    color: #696969;
+    box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+    margin-top: 30px;
+}
+
+.btn-kanan a :hover{
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 6px 30px rgb(93 93 93 / 23%);
+    }
+
+/* card box donasi */
+
+
+
+
+
+
+
+  body{
+    margin:0;
+    overflow-x:hidden;
+    }
+    
+    .footer{
+    background:#000;
+    padding:30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align:center;
+    }
+    
+    .footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    }
+    
+    .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    }
+    
+    .footer .row a:hover{
+    color:#fff;
+    }
+    
+    .footer .row ul{
+    width:100%;
+    }
+    
+    .footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+    }
+    
+    .footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+    }
+    
+    @media (max-width:720px){
+    .footer{
+    text-align:left;
+    padding:5%;
+    }
+    .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+    }
+    .footer .row a i{
+    margin:0% 3%;
+    }
+    }

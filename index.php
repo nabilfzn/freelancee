@@ -1,3 +1,18 @@
+<?php
+
+session_start();    
+if (!isset($_SESSION["email"])) {
+    header("location:../akhirrrrrrrrrrrr/login/login.php");
+    exit;
+}
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +20,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+/* halaman 2 */
+
+.banner {
+width: 100%;
+height: 110vh;
+background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('disabilitas.jpeg'); 
+background-size: cover;
+background-position: center;
+display: flex;
+}
+
+.content {
+
+/* top: 50%; */
+display: flex;
+flex-direction: column;
+width: 70%;
+text-align: center;
+color: white;
+align-items: center;
+justify-content: center;
+margin: auto;
+}
+
+.content h1 {
+font-size: 50px;
+}
+
+.content p {
+width: 500px;
+}
+
+
+
+/* halaman 2 */
+
+/* footer */
+footer {
+    background-color:#000   ;
+}
+
+.footer{
+background:#000;
+padding:30px 0px;
+font-family: 'Play', sans-serif;
+text-align:center;
+}
+
+.footer .row{
+width:100%;
+margin:1% 0%;
+padding:0.6% 0%;
+color:gray;
+font-size:0.8em;
+}
+
+.footer .row a{
+text-decoration:none;
+color:gray;
+transition:0.5s;
+}
+
+.footer .row a:hover{
+color:#fff;
+}
+
+.footer .row ul{
+width:100%;
+}
+
+.footer .row ul li{
+display:inline-block;
+margin:0px 30px;
+}
+
+.footer .row a i{
+font-size:2em;
+margin:0% 1%;
+}
+
+@media (max-width:720px){
+.footer{
+text-align:left;
+padding:5%;
+}
+.footer .row ul li{
+display:block;
+margin:10px 0px;
+text-align:left;
+}
+.footer .row a i{
+margin:0% 3%;
+}
+}
+/* footer */
+    
+    </style>
 </head>
 <body>
-    <!-- navigasi -->
+    
+<!-- navigasi -->
 
 <nav>
     <div class="container">
         <div class="boxnav">
             <div class="logo">
-                <h1>Findceer</h1>
+                <h1>Findcare</h1>
             </div>
             <div class="navbar">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#2">About</a></li>
-                    <li><a href="#">News</a></li>
+                    <li><a href="aboutme.php">Aboutme</a></li>
+                    <li><a href="../akhirrrrrrrrrrrr/donation.page/index.html">Donate</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -36,16 +152,16 @@
 <div class="container">
     <div class="box-head">
         <div class="box-kiri">
-            <h1>Hasilkan Uang Dimanapun kamu berada</h1>
+            <h1>Hasilkan Uang dan Bagikan Kepedulianmu</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores voluptates repellat illum, nulla magni inventore excepturi corrupti aliquam fuga.</p>
             <div class="btn-kanan">
-                <form action="../akhirrrrrrrrrrrr/Find Job!/index.php"><button class="n">Selengkapnya</button></form>
+                <a href="../akhirrrrrrrrrrrr/isi/index.html"><button>Selengkapnya</button></a>
             </div>
         </div>
 
-            <div class="box-kanan">
-                <img src="../akhirrrrrrrrrrrr/aset/wepik-export-20240222142800eN1i.png" alt="">
-            </div>
+        <div class="box-kanan">
+            <img src="wepik-export-20240222142800eN1i.png" alt="">
+        </div>
     </div>
 </div>
 </section>
@@ -53,106 +169,99 @@
 <section id="2">
 
     <div class="container">
-        <div class="redbox">
-            .
-        </div>
+
     </div>
 
 </section>
 
 </header>
 
-    <!-- halaman 2  -->
-    <section id="home">
 
-    </section>
+<!-- halaman 2 -->
 
-    <!-- halaman 3 -->
-        <section id="Services">
-            <div class="containers">
-                <h1 class="heading">Cari Kategori Pilihanmu!</h1>
+        <div class="banner" >
+            <div class="content">
+                <h1>Donasikan sebagian, untuk mereka yang membutuhkan</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores voluptates repellat illum, nulla magni inventore excepturi corrupti aliquam fuga.</p>
+                <div class="btn-kanan">
+                    <a href="../akhirrrrrrrrrrrr/donation.page/index.php"><button>Selengkapnya</button></a>
+                </div>
+            </div>  
+        </div>
 
-                <div class="center">
+<!-- halaman 2 -->
 
-                    <div class="boxc">
 
-                        <div class="box">
-                            <img src="web.png">
-                            <h3>Website development</h3>
-                            <p>1000 skils</p>
-                        </div>
-                        <div class="box">
-                            <img src="web.png">
-                            <h3>Website development</h3>
-                            <p>1000 skils</p>
-                        </div>
-                        <div class="box">
-                            <img src="web.png">
-                            <h3>Website development</h3>
-                            <p>1000 skils</p>
-                        </div>
-                        <div class="box">
-                            <img src="web.png">
-                            <h3>Website development</h3>
-                            <p>1000 skils</p>
-                        </div>
-                        <div class="box">
-                            <img src="web.png">
-                            <h3>Website development</h3>
-                            <p>1000 skils</p>
-                        </div>
-                        <div class="box">
-                            <img src="web.png">
-                            <h3>Website development</h3>
-                            <p>1000 skils</p>
-                        </div>
-                    </div>
+ <!-- halaman 3 -->
+ <section id="Services">
+    <div class="containers">
+        <h1 class="heading">Cari Kategori Pilihanmu!</h1>
+
+        <div class="center">
+
+            <div class="boxc">
+
+                <div class="box">
+                    <img src="web.png">
+                    <h3>Website development</h3>
+                    <p>1000 skils</p>
+                </div>
+                <div class="box">
+                    <img src="web.png">
+                    <h3>Website development</h3>
+                    <p>1000 skils</p>
+                </div>
+                <div class="box">
+                    <img src="web.png">
+                    <h3>Website development</h3>
+                    <p>1000 skils</p>
+                </div>
+                <div class="box">
+                    <img src="web.png">
+                    <h3>Website development</h3>
+                    <p>1000 skils</p>
+                </div>
+                <div class="box">
+                    <img src="web.png">
+                    <h3>Website development</h3>
+                    <p>1000 skils</p>
+                </div>
+                <div class="box">
+                    <img src="web.png">
+                    <h3>Website development</h3>
+                    <p>1000 skils</p>
                 </div>
             </div>
-        </section>
-
-    <footer id="contact">
-    <div class="containerf">
-        <div class="f-cont">
-            <h3>Contact Us</h3>
-            <div class="pp">
-                <p>Email : phimenab@gmail.com</p>
-                <p>phone : 08123456789</p>
-                <p>Addres : Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-        <div class="f-con">
-            <h3>Quick links</h3>
-            <ul class="list">
-                <li><a href="#first">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="/utama/index2.php">About me</a></li>
-            </ul>
-            <div class="wer">
-            <h3>Sumber!</h3>
-            <ul class="sumber">
-                <li><a href="https://youtu.be/-J372iDFU8Y?si=f7ShB9aSUvB9Wy3f">Sandhika Galih</a></li>
-                <li><a href="https://www.freelancer.co.id/">Freelancer</a></li>
-                <li><a href="https://www.w3schools.com/">w3school</a></li>
-                <li><a href="https://youtu.be/ZPb10kOQv0c?si=Da4YQloYK4HCduDR">Mr.Web</a></li>
-            </ul>
-            </div>
-
-        </div>
-        <div class="fcon">
-            <h3>Follow us</h3>
-            <ul>
-                <li><img src="facebook.png" alt=""><a href=""></a></li>
-                <li><img src="twitter.png" alt=""><a href=""></a></li>
-                <li><img src="instagram.png" alt=""><a href=""></a></li>
-                <li><img src="youtube.png" alt=""><a href=""></a></li>
-            </ul>
-        </div>
-        <div class="bottom-bar"> 
-        <p>&copy Findcer 2023</p>
         </div>
     </div>
-    </footer>        
+</section>
+<!-- halaman 3 -->
+
+<footer>
+
+    <div class="footer">
+        <div class="row">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        
+        <div class="row">
+            <ul>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Career</a></li>
+            </ul>
+        </div>
+        
+        <div class="row">
+            FINDCARE Copyright © 2024 FINDCARE
+        </div>
+
+    </div>
+</footer>
 </body>
 </html>
