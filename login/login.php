@@ -1,6 +1,5 @@
 <?php
  require 'koneksi.php';
- session_start();
 
 if (isset($_SESSION['email'])) {
     header("location: index.php");
@@ -18,13 +17,17 @@ if (isset($_SESSION['email'])) {
 
 //  pengecekan email
 if (mysqli_num_rows($result) === 1) {
-  // cek password
+  // cek passwordo
         $row = mysqli_fetch_assoc($result);
 
 
                 if ($password == $row["password"]) {
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['level'] = $row['level'];
+                    $_SESSION['id_user'] = $row['id_user'];
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['password'] = $row['password'];
+                    $_SESSION['telephone'] = $row['telephone'];
                     
                     if ($row['level']== 'admin') {
                         header("location: ../admin/dashboard.php");

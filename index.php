@@ -246,7 +246,7 @@ margin:0% 3%;
             <a href="#"><i class="fa fa-whatsapp"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
         </div>
-        
+        `
         <div class="row">
             <ul>
                 <li><a href="#">Contact us</a></li>

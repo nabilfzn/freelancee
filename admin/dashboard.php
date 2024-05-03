@@ -44,7 +44,7 @@
     if ($ambil) {
         while ($tampilan = mysqli_fetch_assoc($ambil)){
         
-            $id = $tampilan['id'];
+            $id = $tampilan['id_user'];
             $username = $tampilan['username'];
             $email = $tampilan['email'];
             $password = $tampilan['password'];

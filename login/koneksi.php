@@ -1,5 +1,5 @@
 <?php
-
+ session_start();
 $server ="localhost";
 $username = "root";
 $password = "";
@@ -7,10 +7,25 @@ $database_name = "freelancee";
 
 $conn = mysqli_connect ($server, $username, $password, $database_name);
 
+function payment($data) {
+    global $conn;
+
+    $telephone = $data["telephone"];
+    $donatur = $data["nama_donatur"];
+    $alamat = $data["alamat"];
+    $atm = $data["atm"];
+    $nominal = $data["nominal"];
+    $ids = $_SESSION["id_user"];
+    $id_donasi = $_SESSION['id_donasi'];
+    $result = mysqli_query($conn, "INSERT INTO payment VALUES('', '$id_donasi', '$ids', '$telephone', '$donatur', '$alamat', '$atm', '$nominal')");
+
+       return mysqli_affected_rows($conn);
+
+}
 
 function signup($data) {
     global $conn;
-
+    
     $username = $data["username"];
     $email = $data["email"];
     $password = $data["password"];
@@ -73,7 +88,7 @@ function delete($id){
 
     global $conn;
 
-    mysqli_query($conn, "DELETE from user where id = $id");
+    mysqli_query($conn, "DELETE from user where id_user = $id");
     return mysqli_affected_rows($conn);
 }
 

@@ -21,7 +21,7 @@ require '../../login/koneksi.php';
 
 
 $id = $_GET ['id'];
-$donasi = mysqli_query($conn, "SELECT * FROM donasi WHERE id = '$id'");
+$donasi = mysqli_query($conn, "SELECT * FROM donasi WHERE id_donasi = '$id'");
 while ($data = mysqli_fetch_array($donasi)){    
     ?>
 
@@ -54,6 +54,9 @@ while ($data = mysqli_fetch_array($donasi)){
 
                 <div class="button">
                     <a href="../transaksi/index.php"><button>donate</button></a>
+                </div>
+                <div class="button">
+                    <a href="../index.php"><button>back</button></a>
                 </div>
             </div>
         </div>

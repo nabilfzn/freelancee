@@ -4,7 +4,7 @@ require "../login/koneksi.php";
 $query = "SELECT * FROM donasi";
 $result = mysqli_query($conn, $query);
 
-
+// session_start();
 ?>
 
 
@@ -38,7 +38,7 @@ $result = mysqli_query($conn, $query);
                         <li><a href="#">News</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
-                    <a href=""><img src="user.png" alt=""></a>
+                    <a href="../profile/profile.php"><img src="user.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@ $result = mysqli_query($conn, $query);
 
     <div class="banner">
         <div class="content">
-            <h1>Donasikan sebagian, untuk mereka yang membutuhkan</h1>
+            <h1>Donasikan sebagian <?php echo $_SESSION["username"]?>, untuk mereka yang membutuhkan</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores voluptates repellat illum, nulla magni inventore excepturi corrupti aliquam fuga.</p>
             <div class="btn-kanan">
                 <a href="../open-donation/index.php"><button>Buat Donasi!</button></a>
@@ -152,11 +152,12 @@ $result = mysqli_query($conn, $query);
                 
 
                 // data
-                $id = $row['id'];
+                $id = $row['id_donasi'];
                 $judul = $row['judul'];
                 $penerima = $row['penerima'];
                 $deskripsi = $row['deskripsi'];
                 $gambar = $row['gambar'];
+                $_SESSION['id_donasi'] = $row['id_donasi'];
             
             ?>
                 <!-- // format html -->

@@ -1,10 +1,21 @@
 <?php
 require "../login/koneksi.php";
+// session_start();
 
+
+
+    
 if (isset($_POST["submit"])) {
+    // $email = $_SESSION['email'];
+    // $query = "SELECT id_user FROM user WHERE email = '$email'";
     $judul = $_POST['judul'];
     $penerima = $_POST['penerima'];
     $deskripsi = $_POST['deskripsi'];
+    // $result = mysqli_query($conn, $query);
+    // $row = mysqli_fetch_assoc($result);
+    $uid = $_SESSION['id_user'];
+
+
 
     $file = $_FILES['gambar'];
     $fileName = $_FILES['gambar']['name'];
@@ -16,10 +27,10 @@ if (isset($_POST["submit"])) {
     // var_dump($_POST);
     // var_dump($_FILES);
 
-    if (!in_array($fileExtention, $ekstentionAllowed)) {
-        echo "tipe file tidak sesuai (png, jpg, jpeg)";
-        exit();
-    }
+    // if (!in_array($fileExtention, $ekstentionAllowed)) {
+    //     echo "tipe file tidak sesuai (png, jpg, jpeg)";
+    //     exit();
+    // }
 
     if ($fileSize < 6000000) {
         move_uploaded_file($fileTmp, 'file/'. $fileName);
@@ -27,9 +38,9 @@ if (isset($_POST["submit"])) {
         echo "Gambar terlalu besar";
     }
 
-    $result = mysqli_query($conn, "INSERT INTO donasi VALUES ('$judul', '$penerima', '$deskripsi', '$fileName', '')");
+    $result_donasi = mysqli_query($conn, "INSERT INTO donasi VALUES ('', '$judul', '$penerima', '$deskripsi', '$fileName', '$uid')");
 
-    if ($result) {
+    if ($result_donasi) {
         header("Location:../donation.page/index.php");
         exit();
     } else {
@@ -69,14 +80,17 @@ if (isset($_POST["submit"])) {
                 <br>
                 <!-- tagline/ajakan -->
                 <label for="gambar">upload gambar :</label>
-                <input type="file" name="gambar" id="gambar" required>
+                <input type="file" name="gambar" id="gambar">
                 <br>
                 
                 <div class="submit">
                     <button type="submit"name="submit">Galang Dana!</button>
                 </div>
-
+                
             </form>
+            <div class="submit">
+                <a href="../donation.page/index.php"><button>Kembali</button></a>
+            </div>
 
     </div>
 </div>

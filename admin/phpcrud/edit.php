@@ -22,7 +22,7 @@ if(isset($_POST['edit']))
     telephone = '$telephone',
     level = '$level'
 
-    WHERE id = $id");
+    WHERE id_user = $id");
 	
 	// Redirect to homepage to display updated user in list
 	header("Location: ../dashboard.php");
@@ -35,7 +35,7 @@ if(isset($_POST['edit']))
 // require '../../login/koneksi.php';
 
 $id = $_GET ['id'];
-$user = mysqli_query($conn, "SELECT * FROM user WHERE id = '$id'");
+$user = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '$id'");
 while ($data = mysqli_fetch_array($user)){
 
 
@@ -54,7 +54,7 @@ while ($data = mysqli_fetch_array($user)){
 
     <form action="" method="post">
     <ul>
-        <input type="hidden" name="id" id="username" required value= "<?php echo $data['id']?>">
+        <input type="hidden" name="id" id="username" required value= "<?php echo $data['id_user']?>">
 
         <li><label for="username">username :</label>
         <input type="text" name="username" id="username" required value= "<?php echo $data['username']?>"></li>
