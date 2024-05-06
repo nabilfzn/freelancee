@@ -1,10 +1,28 @@
 <?php
  
  require "../../login/koneksi.php";
+
+ $id = $_GET ['id'];
  
  if (isset($_POST["payment"])) {
+
+    $qry = mysqli_query($conn, "SELECT * FROM donasi");
+    $rslt = mysqli_fetch_assoc($qry);
+    $qrya = mysqli_query($conn, "SELECT * FROM payment");
+    $rslta = mysqli_fetch_assoc($qrya);
+
+    $waktu = date('Y-m-d H:i:s');
+    $telephone = $rslta["no_telp"];
+    $donatur = $rslta["nama_donatur"];
+    $alamat = $rslta["alamat"];
+    $atm = $rslta["atm"];
+    $nominal = $rslta["nominal"];
+    $ids = $_SESSION["id_user"];
+    $id_donasi = $id;
+    $result = mysqli_query($conn, "INSERT INTO payment VALUES('', '$id_donasi', '$ids', '$telephone', '$donatur', '$alamat', '$atm', '$nominal', '$waktu')");
+
     
-    if (payment($_POST) > 0) {
+    if ($result) {
         echo "<script> 
         alert('Transaksi berhasil'); 
         window.location.href = '../../donation.page/index.php'
@@ -38,6 +56,8 @@
 <div class="container">
     <div class="page">
             <form action="" method="post">
+
+            <input type="hidden" name="id_donasi" value="<?php $_SESSION["id_user"]?>"> <!-- Misalnya, id_donasi adalah 123 -->
 
                 <!-- no telp -->
                 <label for="Nomor Telephone">Nomor Telephone :</label>

@@ -2,8 +2,11 @@
     require "../login/koneksi.php";
 
     $query = "SELECT donasi.id_donasi, donasi.judul, donasi.penerima, donasi.deskripsi, donasi.gambar, donasi.id_penggalang_dana, donasi.waktu, payment.id_donasi, payment.id_donasi 
-    FROM donasi 
-    INNER JOIN payment ON donasi.id_donasi = payment.id_donasi";
+    FROM donasi
+    INNER JOIN payment ON donasi.id_donasi = payment.id_donasi
+    WHERE payment.id_user = {$_SESSION["id_user"]}";
+
+
 
     $hasil = mysqli_query($conn, $query);
 
@@ -53,17 +56,17 @@
   
   .card-image img {
     width: 100%;
-    height: 30vh;
+    height: 20vh;
     object-fit: cover;
   }
   
   .card-content {
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
   }
   
   .card-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
   
@@ -137,13 +140,7 @@
                     </div>
                     
                     <div class="card-content">
-                        <h5 class="card-title"><?php echo $judul ?></h5>
-                        <div class="card-buttons">
-                        <button class="wishlist-button">Wishlist</button>
-                            <a href="../donation.page/donate-page/index.php?id=<?php echo $id ?>">
-                            
-                            <button class="donation-button">Donation</button></a>
-                        </div>
+                        <h2 class="card-title"><?php echo $judul ?></h2>
                     </div>
                 </div>
                <?php }?>

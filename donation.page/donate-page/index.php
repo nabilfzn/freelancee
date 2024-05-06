@@ -53,7 +53,7 @@ while ($data = mysqli_fetch_array($donasi)){
                 </div>
 
                 <div class="button">
-                    <a href="../transaksi/index.php"><button>donate</button></a>
+                    <a href="../transaksi/index.php?id=<?php echo $id?>"><button>donate</button></a>
                 </div>
                 <div class="button">
                     <a href="../index.php"><button>back</button></a>

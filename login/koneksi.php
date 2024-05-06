@@ -100,21 +100,7 @@ function deletep($id){
 
 
 
-function payment($data) {
-    global $conn;
-    $waktu = date('Y-m-d H:i:s');
-    $telephone = $data["telephone"];
-    $donatur = $data["nama_donatur"];
-    $alamat = $data["alamat"];
-    $atm = $data["atm"];
-    $nominal = $data["nominal"];
-    $ids = $_SESSION["id_user"];
-    $id_donasi = $_SESSION['id_donasi'];
-    $result = mysqli_query($conn, "INSERT INTO payment VALUES('', '$id_donasi', '$ids', '$telephone', '$donatur', '$alamat', '$atm', '$nominal', '$waktu')");
 
-       return mysqli_affected_rows($conn);
-
-}
 
 
 
