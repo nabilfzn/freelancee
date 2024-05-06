@@ -24,17 +24,21 @@ if (mysqli_num_rows($result) === 1) {
                 if ($password == $row["password"]) {
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['level'] = $row['level'];
+
+// ------------------------------------------------------------------
                     $_SESSION['id_user'] = $row['id_user'];
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['password'] = $row['password'];
+                    $_SESSION['address'] = $row['address'];
                     $_SESSION['telephone'] = $row['telephone'];
+// ------------------------------------------------------------------
                     
-                    if ($row['level']== 'admin') {
+                    if ($row['level'] == 'admin') {
                         header("location: ../admin/dashboard.php");
-
+                        
                     } else {
                         header("location: ../index.php");
-                    }
+                     }
 
                 } else {
                         echo '<script> 

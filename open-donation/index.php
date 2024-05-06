@@ -6,13 +6,10 @@ require "../login/koneksi.php";
 
     
 if (isset($_POST["submit"])) {
-    // $email = $_SESSION['email'];
-    // $query = "SELECT id_user FROM user WHERE email = '$email'";
+    $waktu = date('Y-m-d H:i:s');
     $judul = $_POST['judul'];
     $penerima = $_POST['penerima'];
     $deskripsi = $_POST['deskripsi'];
-    // $result = mysqli_query($conn, $query);
-    // $row = mysqli_fetch_assoc($result);
     $uid = $_SESSION['id_user'];
 
 
@@ -38,7 +35,7 @@ if (isset($_POST["submit"])) {
         echo "Gambar terlalu besar";
     }
 
-    $result_donasi = mysqli_query($conn, "INSERT INTO donasi VALUES ('', '$judul', '$penerima', '$deskripsi', '$fileName', '$uid')");
+    $result_donasi = mysqli_query($conn, "INSERT INTO donasi VALUES ('', '$judul', '$penerima', '$deskripsi', '$fileName', '$uid', '$waktu')");
 
     if ($result_donasi) {
         header("Location:../donation.page/index.php");

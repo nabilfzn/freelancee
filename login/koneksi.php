@@ -1,27 +1,22 @@
 <?php
- session_start();
+
+
 $server ="localhost";
 $username = "root";
 $password = "";
 $database_name = "freelancee";
 
 $conn = mysqli_connect ($server, $username, $password, $database_name);
+session_start();
 
-function payment($data) {
-    global $conn;
 
-    $telephone = $data["telephone"];
-    $donatur = $data["nama_donatur"];
-    $alamat = $data["alamat"];
-    $atm = $data["atm"];
-    $nominal = $data["nominal"];
-    $ids = $_SESSION["id_user"];
-    $id_donasi = $_SESSION['id_donasi'];
-    $result = mysqli_query($conn, "INSERT INTO payment VALUES('', '$id_donasi', '$ids', '$telephone', '$donatur', '$alamat', '$atm', '$nominal')");
 
-       return mysqli_affected_rows($conn);
 
-}
+
+
+
+
+
 
 function signup($data) {
     global $conn;
@@ -55,7 +50,7 @@ function signup($data) {
 //  return 1;
 
 
-       mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$email', '$password', '$telephone', '$level')");
+       mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$email', '$password', '$telephone', '$level', '', '')");
 
        return mysqli_affected_rows($conn);
 
@@ -76,12 +71,13 @@ function create($data){
     $level = "user";
 
     $query = "INSERT INTO user VALUES
-            ('', '$username', '$email', '$password', '$telephone', '$level')";
+            ('', '$username', '$email', '$password', '$telephone', '$level', '', '')";
 
-    mysqli_query($conn, $query);
+    $result =  mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
 }
+
 
 
 function delete($id){
@@ -92,10 +88,33 @@ function delete($id){
     return mysqli_affected_rows($conn);
 }
 
+function deletep($id){
+
+    global $conn;
+
+    mysqli_query($conn, "DELETE from donasi where id_donasi = $id");
+    return mysqli_affected_rows($conn);
+}
 
 
 
 
+
+function payment($data) {
+    global $conn;
+    $waktu = date('Y-m-d H:i:s');
+    $telephone = $data["telephone"];
+    $donatur = $data["nama_donatur"];
+    $alamat = $data["alamat"];
+    $atm = $data["atm"];
+    $nominal = $data["nominal"];
+    $ids = $_SESSION["id_user"];
+    $id_donasi = $_SESSION['id_donasi'];
+    $result = mysqli_query($conn, "INSERT INTO payment VALUES('', '$id_donasi', '$ids', '$telephone', '$donatur', '$alamat', '$atm', '$nominal', '$waktu')");
+
+       return mysqli_affected_rows($conn);
+
+}
 
 
 

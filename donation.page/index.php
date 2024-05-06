@@ -4,7 +4,6 @@ require "../login/koneksi.php";
 $query = "SELECT * FROM donasi";
 $result = mysqli_query($conn, $query);
 
-// session_start();
 ?>
 
 
@@ -36,10 +35,30 @@ $result = mysqli_query($conn, $query);
                         <li><a href="../index.php">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Donate</a></li>
                     </ul>
-                    <a href="../profile/profile.php"><img src="user.png" alt=""></a>
+                    <a href="../profile/profile.php"><?php 
+                    // session_start();
+                    
+                    $qry = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '{$_SESSION['id_user']}'");
+                    $baris = mysqli_fetch_assoc($qry);
+                    
+                    $pp = $baris["photo_profile"];
+                    $_SESSION["pp"] = "../profile/file-pp/$pp";
+                    $idus = $baris["id_user"];
+
+                    if ($pp != null) {
+                      echo "<img class='pp' src='{$_SESSION["pp"]}' alt=''>";
+                    }else {
+                      echo "<img src='user.png' alt=''>";
+                    }
+                    
+                    ?></a>
                 </div>
+
+                        <!-- if ($_SESSION["level"] == 'admin') {
+                          echo  '<a href="../admin/dashboard.php">admin</a>';
+                        } -->
             </div>
         </div>
     </nav>
@@ -47,7 +66,7 @@ $result = mysqli_query($conn, $query);
 
     <div class="banner">
         <div class="content">
-            <h1>Donasikan sebagian <?php echo $_SESSION["username"]?>, untuk mereka yang membutuhkan</h1>
+            <h1>Hai <?php echo $_SESSION["username"]?>, Ayo donasi untuk mereka yang membutuhkan</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores voluptates repellat illum, nulla magni inventore excepturi corrupti aliquam fuga.</p>
             <div class="btn-kanan">
                 <a href="../open-donation/index.php"><button>Buat Donasi!</button></a>

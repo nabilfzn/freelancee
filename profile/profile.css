@@ -29,7 +29,7 @@ nav {
 
 .container {
     max-width: 80%;
-    background-color: #595959;
+    /* background-color: #595959; */
     margin: auto;  
 }
 
@@ -60,6 +60,16 @@ nav {
     display: flex;
 } 
 
+li {
+    padding-bottom: 20px;
+}
+
+
+
+.menu button {
+    padding: 20px;
+}
+
 .navbar a {
     text-decoration: none;
     font-size: 17px;
@@ -89,7 +99,6 @@ main .container {
 
 .kanan {
     /* background-color: #ffffff; */
-    width: 100%;
 }
 
 .box {
@@ -105,4 +114,14 @@ main .container {
     list-style: none;
     padding: 10px;
     font-size: 30px;
+}
+
+.profile {
+    display: flex;
+    /* background-color: aqua; */
+    width: 100%;
+}
+
+.menu {
+    margin-right: 80px;
 }

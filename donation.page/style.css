@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #fff  ;
     font-family: poppins;
 }
 
@@ -208,4 +208,9 @@ header {
     .footer .row a i{
     margin:0% 3%;
     }
+    }
+
+    .pp {
+        border-radius: 20px;
+        border: 1px solid black;
     }

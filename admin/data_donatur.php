@@ -56,7 +56,7 @@
     <th>aksi</th>
 
     <button class="button"><a href="../login/logout.php">logout</a></button>
-    <button class="button"><a href="../admin/phpcrud/create.php">Add User</a></button>
+    <button class="button"><a href="../admin/crud_penggalang/create.php">Add User</a></button>
 
     <br>
 
@@ -103,6 +103,6 @@
 </table>
 
 <ul>
-    <li><button><a href="data_penggalang.php">data penggalang dana</a></button></li>
-    <li><button><a href="data_transaksi.php">data transaksi</button></a></li>
+    <li><button><a href="">data penggalang dana</a></button></li>
+    <li><button><a href="">data transaksi</button></a></li>
 </ul>
