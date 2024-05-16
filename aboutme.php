@@ -16,7 +16,6 @@ if (!isset($_SESSION["email"])) {
 </head>
 <body>
 
-    
     <section id="ame">
         <div class="container">
             <div class="content">      

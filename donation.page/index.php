@@ -5,6 +5,15 @@ $query = "SELECT * FROM donasi";
 $result = mysqli_query($conn, $query);
 
 ?>
+<?php
+
+$queri = "SELECT donasi.id_donasi, donasi.total, payment.id_donasi, payment.nominal, payment.id_user
+FROM payment
+INNER JOIN donasi ON donasi.id_donasi = payment.id_donasi";
+$risult = mysqli_query($conn, $query);
+
+?>
+
 
 
 <!DOCTYPE html>
@@ -16,28 +25,26 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body {
-            
-        }
+
     </style>
 </head>
 <body>
     
-
+<!-- navigasi -->
     <nav>
         <div class="container">
-            <div class="boxnav">
+            <div class="box-nav">
                 <div class="logo">
-                    <h1>Findceer</h1>
+                    <a href="../index.php"><img src="../aset/logo.png" alt=""></a>
                 </div>
-                <div class="navbar">
+                <div class="nav-item">
                     <ul>
-                        <li><a href="../index.php">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Donate</a></li>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="#donate">donate</a></li>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#goal">news</a></li>
                     </ul>
-                    <a href="../profile/profile.php"><?php 
+                    <a class="pp" href="../profile/profile.php"><?php 
                     // session_start();
                     
                     $qry = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '{$_SESSION['id_user']}'");
@@ -55,118 +62,102 @@ $result = mysqli_query($conn, $query);
                     
                     ?></a>
                 </div>
-
-                        <!-- if ($_SESSION["level"] == 'admin') {
-                          echo  '<a href="../admin/dashboard.php">admin</a>';
-                        } -->
-            </div>
+            </div>  
         </div>
     </nav>
 
+    <div class="placeholder"></div>
 
-    <div class="banner">
-        <div class="content">
-            <h1>Hai <?php echo $_SESSION["username"]?>, Ayo donasi untuk mereka yang membutuhkan</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores voluptates repellat illum, nulla magni inventore excepturi corrupti aliquam fuga.</p>
-            <div class="btn-kanan">
-                <a href="../open-donation/index.php"><button>Buat Donasi!</button></a>
+
+<!-- navigasi -->
+
+<!-- banner -->
+
+<div id="spanduk">
+    <div class="container">
+        <div class="banner">
+            <div class="content">
+            <h1>Hai <?php echo $_SESSION["username"]?>, Ayo donasikan untuk mereka <br>
+                yang membutuhkan</h1>
+                <p>Bersama, kita bisa memberi harapan. Donasimu berarti bagi <br> mereka yang membutuhkan. Mari berbagi kebaikan dan <br>menemukan kebahagiaan dalam setiap donasi.</p>
             </div>
-        </div>  
+            <div class="btn">
+                <a href="#rating"><img src="../aset/left-arrows.png" alt=""></a>
+            </div>
+        </div>
     </div>
+</div>
 
-    <style>
-        .main-content {
-    /* background-color: #666; */
-    height: 100vh;
-    margin-top: 100px;
-}
+<!-- banner -->
 
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
-  }
-  
-  .card {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-image {
-    height: 150px;
-    overflow: hidden;
-  }
-  
-  .card-image img {
-    width: 100%;
-    height: 30vh;
-    object-fit: cover;
-  }
-  
-  .card-content {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  
-  .card-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card-tagline {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1rem;
-  }
-  
-  .card-buttons {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .card-buttons button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .card-buttons button:hover {
-    background-color: #3e8e41;
-  }
-  
+<!-- news -->
 
-  .card-grid {
-    animation: fadeIn 1s ease-in-out both;
-  }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-    </style>
+<div id="goal">
+    <div class="container">
+        <div class="kotak">
+            <div class="judul">
+                <h1>Lastest News</h1>
+            </div>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="atas">
+                    <img src="../aset/p2.jpg" alt="">                             </div>
+                    <div class="bawah">
+                    <h1>Peduli Sesama</h1>
+                    <p>We are determined to be a bridge for various <br> groups in need, realizing social inclusion and <br> humanity. From disadvantaged children to <br> adults facing adversity, </p>                        </div>
+                </div>
+                <div class="grid-item">
+                    <div class="atas">
+                    <img src="../aset/p2.jpg" alt="">                             </div>
+                    <div class="bawah">
+                    <h1>Peduli Sesama</h1>
+                    <p>We are determined to be a bridge for various <br> groups in need, realizing social inclusion and <br> humanity. From disadvantaged children to <br> adults facing adversity, </p>                        </div>
+                </div>
+                <div class="grid-item">
+                    <div class="atas">
+                    <img src="../aset/p2.jpg" alt="">                             </div>
+                    <div class="bawah">
+                    <h1>Peduli Sesama</h1>
+                    <p>We are determined to be a bridge for various <br> groups in need, realizing social inclusion and <br> humanity. From disadvantaged children to <br> adults facing adversity, </p>                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
 
-<div class="container">
-    <div class="main-content">
-        <div class="card-grid">
-            <?php
+<!-- news -->
+
+
+<!-- open-donation -->
+
+<div id="rating">
+    <div class="container">
+        <div class="bonus">
+            <div class="kiri">
+                <img src="../aset/helping-hand.png" alt="">
+            </div>
+            <div class="kanan">
+                <p>You can also raise donations to help them! Many of them need our help, use your right wisely</p>
+
+                <div class="bttn">
+                    <a href="../open-donation/index.php"><button>make a donation</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- open-donation -->
+
+<!-- donate -->
+
+<div id="donate">
+    <div class="container">
+        <div class="grid-donate">
+
+        <?php
             while ($row = mysqli_fetch_assoc($result)) {
                 
 
@@ -179,58 +170,27 @@ $result = mysqli_query($conn, $query);
                 $_SESSION['id_donasi'] = $row['id_donasi'];
             
             ?>
-                <!-- // format html -->
 
-
-
-                <div class="card">
-                    <div class="card-image">
-                        <img src="../open-donation/file/<?php echo $gambar ?>">
-                    </div>
-
-                    <div class="card-content">
-                            <h5 class="card-title"><?php echo $judul ?></h5>
-                        <div class="card-buttons">
-                            <button class="wishlist-button">Wishlist</button>
-                            <a href="../donation.page/donate-page/index.php?id=<?php echo $id ?>">
-                            
-                            <button class="donation-button">Donation</button></a>
-                        </div>
-                    </div>
+            <div class="item-donate">
+                    <div class="up">
+                    <img src="../open-donation/file/<?php echo $gambar ?>">
                 </div>
-               <?php }?>
-        
+                <div class="down">
+                    <h1><?php echo $judul ?></h1>
+                </div>
+                <div class="btnd">
+                <a href="../donation.page/donate-page/index.php?id=<?php echo $id ?>">
+                    <button>donate</button>                    
+                </a>
+                </div>
+            </div>
+            <?php }?>
         </div>
     </div>
 </div>
 
+<!-- donate -->
 
-<footer>
-
-        <div class="footer">
-            <div class="row">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-whatsapp"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-            </div>
-            
-            <div class="row">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Career</a></li>
-                </ul>
-            </div>
-            
-            <div class="row">
-                FINDCARE Copyright © 2024 FINDCARE
-            </div>
-
-        </div>
-</footer>
 
 </body>
 </html>

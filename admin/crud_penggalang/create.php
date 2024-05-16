@@ -2,26 +2,30 @@
 
 require '../../login/koneksi.php';
 
+
+ $id_user = $_SESSION["id_user"]; 
+ $waktu = date('Y-m-d H:i:s');
+
+
 if (isset($_POST["submit"])) {
 
-    $judul = htmlspecialchars($data["judul"]);
-    $penerima = htmlspecialchars($data["penerima"]);
-    $deskripsi = htmlspecialchars($data["deskripsi"]);
-    $level = "user";
+    $judul = htmlspecialchars($_POST["judul"]);
+    $penerima = htmlspecialchars($_POST["penerima"]);
+    $deskripsi = htmlspecialchars($_POST["deskripsi"]);
 
-    $query = "INSERT INTO user VALUES
-            ('', '$judul', '$penerima', '$deskripsi', '', '$level', '', '')";
+    $query = "INSERT INTO donasi VALUES
+            ('', '$judul', '$penerima', '$deskripsi', '', '$id_user', '$waktu')";
 
     $result =  mysqli_query($conn, $query);
 
-    return mysqli_affected_rows($conn);
+    echo "<script> alert('data berhasil ditambahkan')
+    document.location.href = '../data_penggalang.php' </script>";
 }
 
 
 ?>
 
-alert('data berhasil ditambahkan')
-    document.location.href = '../data_penggalang.php';
+
 
 <!DOCTYPE html>
 <html lang="en">

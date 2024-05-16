@@ -24,10 +24,10 @@ if (isset($_POST["submit"])) {
     // var_dump($_POST);
     // var_dump($_FILES);
 
-    // if (!in_array($fileExtention, $ekstentionAllowed)) {
-    //     echo "tipe file tidak sesuai (png, jpg, jpeg)";
-    //     exit();
-    // }
+    if (!in_array($fileExtention, $ekstentionAllowed)) {
+        echo "tipe file tidak sesuai (png, jpg, jpeg)";
+        exit();
+    }
 
     if ($fileSize < 6000000) {
         move_uploaded_file($fileTmp, 'file/'. $fileName);
@@ -38,7 +38,9 @@ if (isset($_POST["submit"])) {
     $result_donasi = mysqli_query($conn, "INSERT INTO donasi VALUES ('', '$judul', '$penerima', '$deskripsi', '$fileName', '$uid', '$waktu')");
 
     if ($result_donasi) {
-        header("Location:../donation.page/index.php");
+        echo "<script> alert('donasi berhasil ditambahkan')
+        document.location.href = '../donation.page/index.php' </script>";
+    
         exit();
     } else {
         echo "Gagal menyimpan data";
@@ -47,6 +49,8 @@ if (isset($_POST["submit"])) {
     mysqli_error($conn);
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,39 +62,31 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
     
-<div class="container">
-    <div class="page">
-
-            <form action="" method="post" enctype="multipart/form-data" >
-
-                <!-- judul -->
-                <label for="judul">Judul :</label>
-                <input type="text" name="judul" id="judul" required>
-                <br>
-                <!-- deskripsi -->
-                <label for="penerima">penerima :</label>
-                <input type="text" name="penerima" id="penerima" required>
-                <br>
-                <!-- deskripsi -->
-                <label for="deskripsi">deskripsi :</label>
-                <textarea id="deskripsi" name="deskripsi"></textarea><br>
-                <br>
-                <!-- tagline/ajakan -->
-                <label for="gambar">upload gambar :</label>
-                <input type="file" name="gambar" id="gambar">
-                <br>
-                
-                <div class="submit">
-                    <button type="submit"name="submit">Galang Dana!</button>
+    <div id="page">
+        <div class="box">
+            <div class="atas">
+                <form action="" method="post" enctype="multipart/form-data" >
+                    <input type="text" name="judul" placeholder="Masukan Judul">
+                    <br>
+                    <input type="text" name="penerima" placeholder="Masukan Penerima Donasi">
+                    <br>
+                    <input type="text" name="deskripsi" placeholder="Masukan Deskripsi Donasi">
+                    <br>
+                    <input type="file" name="gambar" require>
+                    <br>
+            </div>   
+                <div class="bawah">
+                    <div class="btn">
+                        <a href="../donation.page/index.php"><button>Kembali</button></a>
+                        <div class="s">
+                           <button type="submit" name="submit">Galang Dana!</button>
+                        </div>
+                    </div>
                 </div>
-                
-            </form>
-            <div class="submit">
-                <a href="../donation.page/index.php"><button>Kembali</button></a>
-            </div>
-
+                </form>
+             </div>
+        </div>
     </div>
-</div>
 
 </body>
 </html>

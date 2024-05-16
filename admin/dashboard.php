@@ -66,7 +66,7 @@
 
     require "../login/koneksi.php";
     $no=1;
-    $ambil = mysqli_query($conn, "SELECT * from user") ;
+    $ambil = mysqli_query($conn, "SELECT * from user");
     if ($ambil) {
         while ($tampilan = mysqli_fetch_assoc($ambil)){
         
@@ -104,5 +104,5 @@
 
 <ul>
     <li><button><a href="data_penggalang.php">data penggalang dana</a></button></li>
-    <li><button><a href="data_transaksi.php">data transaksi</button></a></li>
+    <li><button><a href="data_donatur.php">data donatur</button></a></li>
 </ul>

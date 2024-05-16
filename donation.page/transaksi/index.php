@@ -6,19 +6,20 @@
  
  if (isset($_POST["payment"])) {
 
-    $qry = mysqli_query($conn, "SELECT * FROM donasi");
-    $rslt = mysqli_fetch_assoc($qry);
+
     $qrya = mysqli_query($conn, "SELECT * FROM payment");
     $rslta = mysqli_fetch_assoc($qrya);
 
     $waktu = date('Y-m-d H:i:s');
-    $telephone = $rslta["no_telp"];
-    $donatur = $rslta["nama_donatur"];
-    $alamat = $rslta["alamat"];
-    $atm = $rslta["atm"];
-    $nominal = $rslta["nominal"];
+    $telephone = $_POST["telephone"];
+    $donatur = $_POST["nama_donatur"];
+    $alamat = $_POST["alamat"];
+    $atm = $_POST["atm"];
+    $nominal = $_POST["nominal"];
     $ids = $_SESSION["id_user"];
     $id_donasi = $id;
+    // var_dump($waktu, $telephone, $donatur, $alamat, $atm, $nominal, $ids, $id_donasi);
+
     $result = mysqli_query($conn, "INSERT INTO payment VALUES('', '$id_donasi', '$ids', '$telephone', '$donatur', '$alamat', '$atm', '$nominal', '$waktu')");
 
     
@@ -40,9 +41,6 @@
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,44 +51,31 @@
 </head>
 <body>
     
-<div class="container">
-    <div class="page">
-            <form action="" method="post">
-
-            <input type="hidden" name="id_donasi" value="<?php $_SESSION["id_user"]?>"> <!-- Misalnya, id_donasi adalah 123 -->
-
-                <!-- no telp -->
-                <label for="Nomor Telephone">Nomor Telephone :</label>
-                <input type="text" name="telephone" id="Nomor Telephone" required>
-                <br>
-                <!-- nama donatur -->
-                <label for="nama_donatur">Nama Donatur :</label>
-                <input type="text" name="nama_donatur" id="nama_donatur" required>
-                <br>
-                <!-- alamat -->
-                <label for="alamat">Alamat :</label>
-                <input type="text" name="alamat" id="alamat" required>
-                <br>
-                <!-- Nomor ATM -->  
-                <label for="atm">Nomor ATM :</label>
-                <input type="text" name="atm" id="atm" required>
-                <br>
-                <!-- Nominal -->
-                <label for="nominal">Nominal :</label>
-                <input type="number" name="nominal" id="nominal" required>
-                <br>
-                
-                <div class="submit">
-                    <button type="submit" name="payment">Donasi</button>
-                </div>
-                
-            </form>
-            <div class="submit">
-                <a href="../index.php"><button>Kembali</button></a>
-            </div>
-
+    <div id="page">
+        <div class="box">
+            <div class="atas">
+                <form action="" method="post">
+                <input type="hidden" name="id_donasi" value="<?php $_SESSION["id_user"]?>"> 
+                    <input type="text" placeholder="   masukan Penerima donasi">
+                    <br>
+                    <input type="text" placeholder="   masukan deskripsi donasi">
+                    <br>
+                    <input type="text" placeholder="   masukan nomor telphone">
+                    <br>
+                    <input type="text" placeholder="   masukan nomor rekening">
+                    <br>
+                    <input type="text" placeholder="   masukan nominal">
+                </form>
+            </div>   
+                    <div class="bawah">
+                        <div class="btn">
+                            <a href="../index.php"><button>back</button></a>
+                            <a href="#"><button>donate</button></a>
+                        </div>
+                    </div>
+             </div>
+        </div>
     </div>
-</div>
 
 </body>
 </html>

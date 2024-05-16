@@ -19,48 +19,61 @@ require '../../login/koneksi.php';
     
 <?php
 
+// SELECT id_donasi, , COUNT(id_donasi) AS jumlah_donatur, SUM(nominal) AS total_nominal
+// FROM payment
+// GROUP BY id_donasi;
 
 $id = $_GET ['id'];
 $donasi = mysqli_query($conn, "SELECT * FROM donasi WHERE id_donasi = '$id'");
-while ($data = mysqli_fetch_array($donasi)){    
+$data = mysqli_fetch_assoc($donasi);
+
+$sql = "SELECT COUNT(id_donasi) AS jumlah_donatur, SUM(nominal) AS total_nominal
+        FROM payment
+        WHERE id_donasi = '$id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+if ($data && $row){    
     ?>
 
-    <div class="container">
-        <div class="kotak">
-            <input type="hidden" name="id">
 
-            <div class="diatas">
-                <div class="gambar" name="gambar">
-                </div>
-    <style>
-        .diatas {
-        background-image: url("../../open-donation/file/<?php echo $data['gambar']?>");
-        background-size: cover;
-        background-repeat: no-repeat;
-        width: auto;
-        height: 400px;
-    }
-    </style>
-            </div>
-
-            <div class="bawah">
-                <div class="judul" name="judul">
-                <h2><?php echo $data['judul']?></h2>
-                </div>
-
-                <div class="deskripsi" name="deskripsi">
-                    <?php echo $data['deskripsi']?>   
-                </div>
-
-                <div class="button">
-                    <a href="../transaksi/index.php?id=<?php echo $id?>"><button>donate</button></a>
-                </div>
-                <div class="button">
-                    <a href="../index.php"><button>back</button></a>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="detail-donate.css">
+</head>
+<body>
+    
+    <div id="page">
+        <div class="box">
+             <div class="atas">
+                <img src="../../open-donation/file/<?php echo $data['gambar']?>" alt="">
+             </div>   
+             <div class="bawah">
+                    <div class="tag">
+                        <div class="judul">
+                            <h1><?php echo $data['judul']?></h1>
+                        </div>
+                        <div class="angka">
+                        <p>Donasi terkumpul :</p> Rp<?php echo number_format($row['total_nominal'])?>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="pgf">
+                            <p> <?php echo $data['deskripsi']?> </p>
+                        </div>
+                        <div class="btn">
+                            <a href="../index.php#donate"><button>back</button></a>
+                            <a href="../transaksi/index.php?id=<?php echo $id?>"><button>donate</button></a>
+                        </div>
+                    </div>
+             </div>
         </div>
     </div>
+
 </body>
 </html>
 

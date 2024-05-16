@@ -1,213 +1,285 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-* {
-padding: 0;
-margin: 0;
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html {
+
+    scroll-behavior: smooth;
 }
 
 body {
-background-color: #f2f2f2;
-font-family: poppins;
+    font-family: "Poppins", sans-serif;
 }
 
 body::-webkit-scrollbar{
-display: none;
+    display: none;
 }
-
 
 .container {
-max-width: 80%;
-/* background-color: #f9f9f9; */
-margin: auto;    
+        margin: auto;
+    /* background-color: aqua; */
+    height: auto;
+    width: 1280px;
 }
 
-.container .boxnav {
-display: flex;
-justify-content: space-between;
-padding: 15px 0px 15px 0px;
-/* background-color: #c6c4c4; */
-align-items: center;
+/* navbar */
+
+
+nav {
+    background-color: #ffffff;
+    width: 100%;
+    height: 70px;
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.417);
+    display: flex;
+    position: fixed;
 }
 
-.container .boxnav .navbar ul {
-display: flex;
-gap: 50px;
-align-items: center;
+.box-nav{
+    /* background-color: aqua; */
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.boxnav .logo {
-font-size: 20px;
+.logo {
+    display: flex;
 }
 
-.navbar li {
-list-style: none;
-margin-right: 40px;
+.logo img{
+    width: 135px;
+    height: 30px;
+    margin-top: 6px;
+    margin-left: 30px;
 }
 
-.navbar a {
-text-decoration: none;
-font-size: 17px;
+.nav-item {
+    /* background-color: blue; */
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+.nav-item ul{
+    /* background-color: blue; */
+    flex-direction: row;
+    display: flex;
+    gap: 35px;
+    justify-content: center;
 }
 
-.loginb button {
-
-cursor: pointer;
-outline: 0;
-display: inline-block;
-font-weight: 400;
-line-height: 1;
-text-align: center;
-background-color: transparent;
-border: 1px solid transparent;
-padding: 6px 12px;
-font-size: 15px;
-border-radius: .25rem;
-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-color: #0d6efd;
-border-color: #0d6efd;
+.nav-item ul li a{
+    font-size: 15px;
 }
 
-.loginb button:hover {
-color: #fff;
-background-color: #0d6efd;
-border-color: #0d6efd;
+.nav-item button {
+    
+    border: none;
+    cursor: pointer;
+    line-height: 1.2rem;
+    background: #27AE60;
+    padding: 8px 30px 9px;
+    font-size: 15px;
+    border-radius: 4px;
+    color: #fff;
+    height: 36px;
+    transition: all 75ms ease-in-out;
+    
 }
 
-/* header */
-
-
-
-
-.container .box-head {
-/* background-color: aqua; */
-display: flex;
-align-items: center;
+.nav-item button:hover{
+    box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
 }
 
-.box-kiri h1{
-/* background-color: #5f656e; */
-font-size: 50px;
+li {
+    list-style: none;
 }
 
-.box-kanan img {
-width: 700px;
-/* background-color: #5d4747; */
-margin-left: 00px;
-}
-
-.btn-kanan button {
-
-
-display: inline-block;
-outline: 0;
-cursor: pointer;
-border: none;
-padding: 0 56px;
-height: 45px;
-line-height: 45px;
-border-radius: 7px;
-font-weight: 400;
-font-size: 16px;
-background: #fff;
-color: #696969;
-box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
-transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
-margin-top: 30px;
-}
-
-.btn-kanan :hover{
-    background: rgba(255,255,255,0.9);
-    box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
+.nav-item a {
+    text-decoration: none;
+    color: #000;
 }
 
 
-.redbox {
-background-color: red;
-height: 100vh;
+/* navbar */
+
+/* main */
+
+.banner {
+    width: 1709px;
+    height: 102vh;
+    background-image: url('aset/header-bg.jpg'); 
+    background-size: 1790px;
+    background-repeat: no-repeat;
+    background-position: 190% 85%;
+    display: flex;
 }
 
 
 
-#Services {
-margin: 0; padding: 0;
-/* box-sizing: border-box; */
-outline: none;
-border: none;
-text-transform: capitalize;
-background-color:  #f2f2f2;
-}
-
-.containers .boxc .box img {
-width: 50px;
-height: 50px;
-margin-bottom: 40px;
-}
-
-.containers {
-height: 90vh;
-padding: 70px 9%;
-padding-bottom: 100px;
-max-width: 80%;
-display: flex;
-flex-direction: column;
-margin: auto;
-}
-
-
-.containers .heading {
-text-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
-padding-bottom: 15px;
-color: black;
-font-size: 30px;
-font-family: montserrat;
-}
-
-.containers .boxc {
-display: grid;
-grid-template-columns: repeat(3, 2fr);
-gap: 25px;   
-justify-content: center;
-/* background-color: #0d6efd; */
-}
-
-.containers .boxc .box {
-box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
-text-align: center;
-background-color: #fff;
-border-radius: 15px;
-padding: 30px 20px;
-transition: 0.6s;
-}
-
-
-.box p {
-font-size: 13px;
-font-family: 'Poppins', sans-serif;
-}
-
-.heading {
-padding-bottom: 70px;
-/* background-color: #1E212D; */
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 30px;
-}
-
-.box:hover {
-transform: scale(0.9);
-}
-
-
-body{
-margin:0;
-overflow-x:hidden;
+.content h1{
+    font-size: 65px;
+    font-weight: 700;
+    color: white;
 }
 
 
 
+.btn button{
+    border: none;
+    cursor: pointer;
+    width: 163px;
+    background: #27AE60;
+    font-size: 17px;
+    font-family: poppins;
+    font-weight: 600;
+    border-radius: 20px;
+    color: #fff;
+    height: 57px;
+    transition: all 75ms ease-in-out;
+    margin-top: 30px;
+}
 
+.btn button:hover{
+    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
+}
 
+/* main */
+
+/* main2 */
+#goal {
+    height: 110vh;
+}
+
+.kotak {
+    display: flex;
+    flex-direction: column;
+    /* background-color: #27AE60; */
+    margin-top: 120px;
+}
+
+.judul{
+    align-items: center;
+    /* background-color: aliceblue; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.judul h1 {
+    font-size: 44px;
+    font-weight: 600;
+}
+
+.judul p {
+    text-align: center;
+    font-size: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 100px;
+    /* background-color: #27AE60; */
+    justify-content: center;
+}
+
+.center {
+    background-color: aqua;
+    gap: 70px;
+    /* display: flex; */
+}
+
+.grid-item {
+    /* border: 1px solid black; */
+    transition: 0.6s;
+    width: 360px;
+    height: 525px;
+    margin: auto;
+    
+}
+
+.grid-item h1 {
+    font-weight: 500;
+}
+
+.grid-item p {
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 400;
+}
+/* main2 */
+
+/* main 3 */
+
+#rating {
+    width: 100%;
+    height: 80vh;
+    background-color: #E74C3C;
+    display: flex;
+    /* background-image: url(aset/pngwing.com\ \(2\).png); */
+}
+
+.bonus {
+    /* background-color: #27AE60; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.kiri img {
+    width: 444px;
+    transition: 1s;
+}
+
+.kiri img:hover {
+    transform: scale(0.9);
+}
+
+.kanan p {
+    font-size: 56px;
+    color: #fff;
+    font-weight: 800;
+}
+
+/* main 3 */
+
+/* main 4 */
+
+.bannerl{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('aset/disabilitas.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    }
+    
+    .contentl {
+    
+    /* top: 50%; */
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    text-align: center;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    }
+    
+    .contentl h1 {
+    font-size: 90px;
+    font-weight: 800;
+    }
+    
+    .contentl p {
+    width: 500px;
+    }
+
+/* main 4 */
 

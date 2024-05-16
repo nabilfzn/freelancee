@@ -41,18 +41,19 @@
 
 
 
-<h3>Data pengguna</h3>
+<h3>Data donatur</h3>
 
 <table>
     <th>No</th>
-    <th>id</th>
-    <th>photo</th>
-    <th>username</th>
-    <th>email</th>
-    <th>password</th>
+    <th>id pembayaran</th>
+    <th>Donatur</th>
+    <th>Donasi Yang disumbang</th>
     <th>telephone</th>
-    <th>address</th>
-    <th>level</th>
+    <th>donatur</th>
+    <th>alamat</th>
+    <th>atm</th>
+    <th>nominal</th>
+    <th>waktu pembayaran</th>
     <th>aksi</th>
 
     <button class="button"><a href="../login/logout.php">logout</a></button>
@@ -66,32 +67,56 @@
 
     require "../login/koneksi.php";
     $no=1;
-    $ambil = mysqli_query($conn, "SELECT * from user") ;
+    $query = "SELECT 
+    p.id_payment, 
+    p.id_donasi AS id_donasi_payment, 
+    p.id_user AS id_user_payment, 
+    p.no_telp, 
+    p.nama_donatur, 
+    p.alamat, 
+    p.atm, 
+    p.nominal, 
+    DATE_FORMAT(p.waktu_pembayaran, '%W, %d-%m-%Y') AS waktu, 
+    d.id_donasi, 
+    d.judul as judul, 
+    u.id_user, 
+    u.username as nama
+FROM 
+    user u
+JOIN 
+    payment p ON p.id_user = u.id_user
+JOIN 
+    donasi d ON d.id_donasi = p.id_donasi";
+    $ambil = mysqli_query($conn, $query) ;
     if ($ambil) {
         while ($tampilan = mysqli_fetch_assoc($ambil)){
         
-            $id = $tampilan['id_user'];
-            $photo = "<img src='../profile/file-pp/".$tampilan["photo_profile"]."' alt=''>";
-            $username = $tampilan['username'];
-            $email = $tampilan['email'];
-            $password = $tampilan['password'];
-            $telephone = $tampilan['telephone'];
-            $level = $tampilan['level'];
-            $address = $tampilan['address'];
+            $idp = $tampilan['id_payment'];
+            $idd = $tampilan['id_donasi'];
+            $idu = $tampilan['id_user'];
+            $judul = $tampilan['judul'];
+            $nama = $tampilan['nama'];
+            $telephone = $tampilan['no_telp'];
+            $donatur = $tampilan['nama_donatur'];
+            $alamat = $tampilan['alamat'];
+            $atm = $tampilan['atm'];
+            $nominal = 'Rp ' . number_format($tampilan['nominal'], 0, ',', '.');
+            $waktu = $tampilan['waktu'];
             
             echo '<tr>
                 <td>'.$no.'</td>
-                <td>'.$id.'</td>
-                <td class="pp">'.$photo.'</td>
-                <td>'.$username.'</td>
-                <td>'.$email.'</td>
-                <td>'.$password.'</td>
+                <td>'.$idp.'</td>
+                <td>'.$nama.'</td>
+                <td>'.$judul.'</td>
                 <td>'.$telephone.'</td>   
-                <td>'.$address.'</td>   
-                <td>'.$level.'</td>   
+                <td>'.$donatur.'</td>
+                <td>'.$alamat.'</td>
+                <td>'.$atm.'</td>
+                <td>'.$nominal.'</td>   
+                <td>'.$waktu.'</td>   
                 <td>
-                    <button><a href="../admin/phpcrud/edit.php?id='.$id.'">Edit</a></button>
-                    <button><a href="../admin/phpcrud/delete.php?id='.$id.'">Delete</a></button>
+                    <button><a href="../admin/phpcrud/edit.php?id='.$idp.'">Edit</a></button>
+                    <button><a href="../admin/phpcrud/delete.php?id='.$idp.'">Delete</a></button>
                 </td>
             </tr>';
             $no++;
@@ -103,6 +128,6 @@
 </table>
 
 <ul>
-    <li><button><a href="">data penggalang dana</a></button></li>
-    <li><button><a href="">data transaksi</button></a></li>
+    <li><button><a href="dashboard.php">data user</a></button></li>
+    <li><button><a href="data_penggalang.php">data penggalang dana</button></a></li>
 </ul>

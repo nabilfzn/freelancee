@@ -62,7 +62,7 @@ if (mysqli_num_rows($result) === 1) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="login.css"> -->
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
  <div class="box">
@@ -72,14 +72,10 @@ if (mysqli_num_rows($result) === 1) {
                 <h1>Login</h1>
                 <form action="" method="POST">
                     <div class="txt">
-                        <input type="email" name="email" id="email" required;>
-                        <span></span>
-                        <label for="email">email</label>
+                        <input placeholder="email" type="email" name="email" id="email" required;>
                     </div>
                     <div class="txt">
-                        <input type="password" name="password" id="password" required;>
-                        <span></span>
-                        <label for="password">password</label>
+                        <input placeholder="password" type="password" name="password" id="password" required;>
                     </div>
                     <div class="submit">
                         <button type="submit" name="login">
@@ -87,6 +83,7 @@ if (mysqli_num_rows($result) === 1) {
                     </div>
                 </form>
             </div>
+            <p class="s">Create Account <a href="register.php">SignUp</a></p>
         </div>
     </div>
 </div>

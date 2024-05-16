@@ -18,250 +18,128 @@ if (!isset($_SESSION["email"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FindCare</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <style>
-/* halaman 2 */
-
-.banner {
-width: 100%;
-height: 110vh;
-background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('disabilitas.jpeg'); 
-background-size: cover;
-background-position: center;
-display: flex;
-}
-
-.content {
-
-/* top: 50%; */
-display: flex;
-flex-direction: column;
-width: 70%;
-text-align: center;
-color: white;
-align-items: center;
-justify-content: center;
-margin: auto;
-}
-
-.content h1 {
-font-size: 50px;
-}
-
-.content p {
-width: 500px;
-}
-
-
-
-/* halaman 2 */
-
-/* footer */
-footer {
-    background-color:#000   ;
-}
-
-.footer{
-background:#000;
-padding:30px 0px;
-font-family: 'Play', sans-serif;
-text-align:center;
-}
-
-.footer .row{
-width:100%;
-margin:1% 0%;
-padding:0.6% 0%;
-color:gray;
-font-size:0.8em;
-}
-
-.footer .row a{
-text-decoration:none;
-color:gray;
-transition:0.5s;
-}
-
-.footer .row a:hover{
-color:#fff;
-}
-
-.footer .row ul{
-width:100%;
-}
-
-.footer .row ul li{
-display:inline-block;
-margin:0px 30px;
-}
-
-.footer .row a i{
-font-size:2em;
-margin:0% 1%;
-}
-
-@media (max-width:720px){
-.footer{
-text-align:left;
-padding:5%;
-}
-.footer .row ul li{
-display:block;
-margin:10px 0px;
-text-align:left;
-}
-.footer .row a i{
-margin:0% 3%;
-}
-}
-/* footer */
-    
-    </style>
 </head>
 <body>
-    
-<!-- navigasi -->
-
+    <!-- navigasi -->
 <nav>
     <div class="container">
-        <div class="boxnav">
+        <div class="box-nav">
             <div class="logo">
-                <h1>Findcare</h1>
+                <a href=""><img src="aset/logo.png" alt=""></a>
             </div>
-            <div class="navbar">
+            <div class="nav-item">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="aboutme.php">Aboutme</a></li>
-                    <li><a href="../akhirrrrrrrrrrrr/donation.page/index.html">Donate</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">donate</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#goal">goals</a></li>
                 </ul>
+                <div class="button">
+                    <a href="#"><button>login</button></a>
+                    
+                </div>
             </div>
-            <div class="loginb">
-                <a href="../akhirrrrrrrrrrrr/login/login.php"><button>Login</button></a>
+        </div>  
+    </div>
+</nav>
+<!-- navigasi -->
+
+<!-- main -->
+<div class="banner" >
+    <div class="container">
+        <div class="content">
+            <h1>From Heart to Heart, <br> Sharing Hope <br> Together</h1>
+            <div class="btn">
+                <a href="donation.page/index.php"><button>Donate Now</button></a>
+            </div>
+        </div>  
+    </div>
+</div>
+
+<!-- main -->
+
+<!-- main 2 -->
+<div id="goal">
+    <div class="container">
+        <div class="kotak">
+            <div class="judul">
+                <h1>Find Your Care</h1>
+                <p>In this world there are lots of people in need, it's good for those of us who have <br> enough to help them fulfill their needs so that we can all create a peaceful <br>atmosphere.</p>
+            </div>
+            <div class="grid">
+                        <div class="grid-item">
+                            <div class="atas">
+                            <img src="aset/p2.jpg" alt="">  
+                            </div>
+                            <div class="bawah">
+                            <h1>Embrace</h1>
+                            <p>We are determined to be a bridge for various groups in need, realizing social inclusion and humanity. From disadvantaged children to adults facing adversity, we are committed to providing support that embraces, empowers and inspires every individual to access equal opportunities and live meaningful lives.</p>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="atas">
+                            <img src="aset/p2.jpg" alt="">  
+                            </div>
+                            <div class="bawah">
+                            <h1>Embrace</h1>
+                            <p>We are determined to be a bridge for various groups in need, realizing social inclusion and humanity. From disadvantaged children to adults facing adversity, we are committed to providing support that embraces, empowers and inspires every individual to access equal opportunities and live meaningful lives.</p>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="atas">
+                            <img src="aset/p2.jpg" alt="">  
+                            </div>
+                            <div class="bawah">
+                            <h1>Embrace</h1>
+                            <p>We are determined to be a bridge for various groups in need, realizing social inclusion and humanity. From disadvantaged children to adults facing adversity, we are committed to providing support that embraces, empowers and inspires every individual to access equal opportunities and live meaningful lives.</p>
+                        </div>
             </div>
         </div>
     </div>
-</nav>
+    </div>
+</div>
+<!-- main 2 -->
 
-<header>
+<!-- main 3 -->
 
-<section id="1">
-<div class="container">
-    <div class="box-head">
-        <div class="box-kiri">
-            <h1>Hasilkan Uang dan Bagikan Kepedulianmu</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores voluptates repellat illum, nulla magni inventore excepturi corrupti aliquam fuga.</p>
-            <div class="btn-kanan">
-                <a href="../akhirrrrrrrrrrrr/isi/index.html"><button>Selengkapnya</button></a>
+<div id="rating">
+    <div class="container">
+        <div class="bonus">
+            <div class="kiri">
+                <img src="aset/handshake.png" alt="">
             </div>
-        </div>
-
-        <div class="box-kanan">
-            <img src="wepik-export-20240222142800eN1i.png" alt="">
+            <div class="kanan">
+                <p>"Embrace love, <br> cherish family, unite <br>humanity."</p>
+            </div>
         </div>
     </div>
 </div>
-</section>
 
-<section id="2">
+<!-- main 3 -->
 
+<!-- main 4 -->
+
+<div id="analisis">
     <div class="container">
 
     </div>
+</div>
 
-</section>
+<!-- main 4 -->
 
-</header>
-
-
-<!-- halaman 2 -->
-
-        <div class="banner" >
-            <div class="content">
-                <h1>Donasikan sebagian, untuk mereka yang membutuhkan</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem maiores voluptates repellat illum, nulla magni inventore excepturi corrupti aliquam fuga.</p>
-                <div class="btn-kanan">
-                    <a href="../akhirrrrrrrrrrrr/donation.page/index.php"><button>Selengkapnya</button></a>
-                </div>
-            </div>  
+<!-- main 5 -->
+<div class="bannerl" >
+    <div class="contentl">
+        <h1>Help Others</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+             Voluptatem maiores voluptates repellat illum, nulla magni <br>
+             inventore excepturi corrupti aliquam fuga.</p>
+        <div class="btn-kanan">
         </div>
-
-<!-- halaman 2 -->
-
-
- <!-- halaman 3 -->
- <section id="Services">
-    <div class="containers">
-        <h1 class="heading">Cari Kategori Pilihanmu!</h1>
-
-        <div class="center">
-
-            <div class="boxc">
-
-                <div class="box">
-                    <img src="web.png">
-                    <h3>Website development</h3>
-                    <p>1000 skils</p>
-                </div>
-                <div class="box">
-                    <img src="web.png">
-                    <h3>Website development</h3>
-                    <p>1000 skils</p>
-                </div>
-                <div class="box">
-                    <img src="web.png">
-                    <h3>Website development</h3>
-                    <p>1000 skils</p>
-                </div>
-                <div class="box">
-                    <img src="web.png">
-                    <h3>Website development</h3>
-                    <p>1000 skils</p>
-                </div>
-                <div class="box">
-                    <img src="web.png">
-                    <h3>Website development</h3>
-                    <p>1000 skils</p>
-                </div>
-                <div class="box">
-                    <img src="web.png">
-                    <h3>Website development</h3>
-                    <p>1000 skils</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- halaman 3 -->
-
-<footer>
-
-    <div class="footer">
-        <div class="row">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-whatsapp"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-        </div>
-        `
-        <div class="row">
-            <ul>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Career</a></li>
-            </ul>
-        </div>
-        
-        <div class="row">
-            FINDCARE Copyright © 2024 FINDCARE
-        </div>
-
-    </div>
-</footer>
+    </div>  
+</div>
+<!-- main 5 -->
 </body>
 </html>

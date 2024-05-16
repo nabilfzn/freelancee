@@ -41,7 +41,7 @@
 
 
 
-<h3>Data pengguna</h3>
+<h3>Data penggalang</h3>
 
 <table>
     <th>No</th>
