@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
     $result_donasi = mysqli_query($conn, "INSERT INTO donasi VALUES ('', '$judul', '$penerima', '$deskripsi', '$fileName', '$uid', '$waktu')");
 
     if ($result_donasi) {
-        echo "<script> alert('donasi berhasil ditambahkan')
+        echo "<script> alert('donasi     berhasil ditambahkan')
         document.location.href = '../donation.page/index.php' </script>";
     
         exit();

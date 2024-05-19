@@ -51,11 +51,12 @@ $risult = mysqli_query($conn, $query);
                     $baris = mysqli_fetch_assoc($qry);
                     
                     $pp = $baris["photo_profile"];
-                    $_SESSION["pp"] = "../profile/file-pp/$pp";
+                    // $_SESSION["pp"] = "../akhirrrrrrrrrrrr/profile/file-pp/$pp";
+                    $profile = "../profile/file-pp/$pp";
                     $idus = $baris["id_user"];
 
                     if ($pp != null) {
-                      echo "<img class='pp' src='{$_SESSION["pp"]}' alt=''>";
+                      echo "<img class='pp' src='$profile' alt=''>";
                     }else {
                       echo "<img src='user.png' alt=''>";
                     }

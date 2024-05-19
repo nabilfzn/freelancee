@@ -21,13 +21,16 @@ if(isset($_POST["submit"])) {
     $email = $_POST["email"];
     $telephone = $_POST["telephone"];
 
+if (!empty($fileName)) {
     if ($fileSize < 6000000) {
         move_uploaded_file($fileTmp, 'file-pp/'. $fileName);
     } else {
         echo "Gambar terlalu besar";
     }
 
-    
+} else {
+    $fileName = $_POST['photo_profile'];
+}
 
     $result_donasi= mysqli_query($conn, "UPDATE user SET 
     
@@ -56,57 +59,45 @@ mysqli_error($conn);
 
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <style>
-                img {
-        max-width: 100%; /* Maksimum lebar gambar adalah 100% dari lebar parent */
-        max-height: 100%; /* Maksimum tinggi gambar adalah 100% dari tinggi parent */
-        height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi dengan lebar */
-}
-
-    .pp {
-        width: 100px;
-    }
-
-
-
-
-    </style>
-
-
-
+    <link rel="stylesheet" href="edit-profile.css">
 </head>
 <body>
-    
+ <div class="box">
+    <div class="kiri">
+        <div class="box-signup">
+            <div class="formk">
+                <h1>Edit Profile</h1>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="txt">
+                    ganti foto profil : <input type="file" name="gambar">
+                    </div>
+                    <div class="txt">
+                        <input placeholder="username" type="username" name="username" id="username" value="<?php echo $_SESSION['username']?>" required;>
+                    </div>
+                    <div class="txt">
+                        <input placeholder="email" type="email" name="email" id="email" value="<?php echo $_SESSION['email']?>" required;>
+                    </div>
+                    <div class="txt">
+                        <input placeholder="address" type="address" name="address" id="address" value="<?php echo $_SESSION['address']?>" required;>
+                    </div>
+                    <div class="txt">
+                        <input placeholder="telephone" type="telephone" name="telephone" id="telephone" value="<?php echo $_SESSION['telephone']?>" required;>
+                    </div>
+                    <div class="submit">
+                        <button type="submit" name="submit">
+                            Submit</button>
+                    </div>
+                </form>
+            </div>
+            <p class="s"><a href="profile.php">Kembali</a></p>
+        </div>
+    </div>
+</div>
 
-<form action="" method="post" enctype="multipart/form-data">
-
-
-<input type="text" name="username" value="<?php echo $_SESSION['username']?>">
-<br>
-<input type="text" name="address" value="<?php echo $_SESSION['address']?>">
-<br>
-<input type="text" name="email" value="<?php echo $_SESSION['email']?>">
-<br>
-<input type="text" name="telephone" value="<?php echo $_SESSION['telephone']?>">
-<br>
-<img class="pp" src="file-pp/<?php echo $row["photo_profile"]?>" alt=""> <br>ganti foto profil : <input type="file" name="gambar">
-
-<br>
-<input type="submit" name="submit">
-
-</form>
-
-
-
-</body>
-</html>
+</div>

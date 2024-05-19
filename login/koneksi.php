@@ -68,16 +68,30 @@ function create($data){
     $email = htmlspecialchars($data["email"]);
     $password = htmlspecialchars($data["password"]);
     $telephone = htmlspecialchars($data["telephone"]);
+    $alamat = htmlspecialchars($data["address"]);
+    $waktu = date('Y-m-d H:i:s');
     $level = "user";
 
+    $file = $_FILES['gambar'];
+    $fileName = $_FILES['gambar']['name'];
+    $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION)); // Mengambil ekstensi file dengan fungsi pathinfo()
+    $ekstentionAllowed = array('png', 'jpg', 'jpeg');
+    $fileSize = $_FILES['gambar']['size'];
+    $fileTmp = $_FILES['gambar']['tmp_name'];
+
+    if ($fileSize < 6000000) {
+        move_uploaded_file($fileTmp, '../../profile/file-pp/'. $fileName);
+    } else {
+        echo "Gambar terlalu besar";
+    }
+
     $query = "INSERT INTO user VALUES
-            ('', '$username', '$email', '$password', '$telephone', '$level', '', '')";
+            ('', '$username', '$email', '$password', '$telephone', '$level', '$alamat', '$fileName')";
 
     $result =  mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
 }
-
 
 
 function delete($id){
@@ -93,6 +107,14 @@ function deletep($id){
     global $conn;
 
     mysqli_query($conn, "DELETE from donasi where id_donasi = $id");
+    return mysqli_affected_rows($conn);
+}
+
+function deleted($id){
+
+    global $conn;
+
+    mysqli_query($conn, "DELETE from payment where id_payment = $id");
     return mysqli_affected_rows($conn);
 }
 

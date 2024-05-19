@@ -1,62 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin-template.css">
+</head>
+<body>
+    <div id="kiri">
+        <nav>
+            <div class="navbox">
+                <div class="nav-item">
+                    <ul>
+                        <li><a href=""><button>Data BPS</button></a></li>
+                        <li><a href="data_donatur.php"><button>Data Pembayaran</button></a></li>
+                        <li><a href="dashboard.php"><button>Data user</button></a></li>
+                        <li><a href=""><button>logout</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="tambahan"></div>
+    <div id="kanan">
 
+        <div class="atas">
+            <a href="crud_penggalang/create.php"><button>Add data</button></a>
+        </div>
+        
+        <table>
+            <th>No</th>
+            <th>id</th>
+            <th>judul</th>
+            <th>gambar</th>
+            <th>penerima</th>
+            <th>deskripsi</th>
+            <th>penggalang dana</th>
+            <th>waktu</th>
+            <th>aksi</th>
 
-<style>
-    table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
- 
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-        }
-        th {
-            background-color: rgb(19, 110, 170);
-            color: white;
-
-        }
-
-        .btn {
-            margin-top: 30px;
-        }
-
-        img {
-        max-width: 100%; /* Maksimum lebar gambar adalah 100% dari lebar parent */
-        max-height: 100%; /* Maksimum tinggi gambar adalah 100% dari tinggi parent */
-        height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi dengan lebar */
-}
-
-    .pp {
-        width: 100px;
-    }
-
-    .button {
-        margin-left: 20px;
-    }
-
-</style>
-
-
-
-<h3>Data penggalang</h3>
-
-<table>
-    <th>No</th>
-    <th>id donasi</th>
-    <th>judul</th>
-    <th>penerima</th>
-    <th>deskripsi</th>
-    <th>penggalang dana</th>
-    <th>tanggal pembuatan</th>
-    <th>aksi</th>
-
-    <button class="button"><a href="../login/logout.php">logout</a></button>
-    <button class="button"><a href="../admin/crud_penggalang/create.php">Add data</a></button>
-
-    <br>
+            <br>
 
 <?php
 
@@ -64,7 +48,7 @@
 
     require "../login/koneksi.php";
     $no=1;
-    $query = "SELECT d.id_donasi, d.judul, d.penerima, d.deskripsi, DATE_FORMAT(d.waktu,  '%W, %d-%m-%Y') AS waktu, 
+    $query = "SELECT d.id_donasi, d.judul, d.gambar, d.penerima, d.deskripsi, DATE_FORMAT(d.waktu,  '%W, %d-%m-%Y') AS waktu, 
                 u.username AS penggalang_dana
             FROM donasi AS d
             JOIN user AS u ON d.id_penggalang_dana = u.id_user";    
@@ -76,8 +60,8 @@
         while ($tampilan = mysqli_fetch_assoc($ambil)){
         
             $id = $tampilan['id_donasi'];
-            // $photo = "<img src='../profile/file-pp/".$tampilan["photo_profile"]."' alt=''>";
             $judul = $tampilan['judul'];
+            $gambar = "<img src='../open-donation/file/".$tampilan["gambar"]."' alt=''>";
             $penerima = $tampilan['penerima'];
             $deskripsi = $tampilan['deskripsi'];
             $penggalang_dana = $tampilan['penggalang_dana'];
@@ -87,6 +71,7 @@
                 <td>'.$no.'</td>
                 <td>'.$id.'</td>
                 <td>'.$judul.'</td>
+                <td class="pp">'.$gambar.'</td>
                 <td>'.$penerima.'</td>
                 <td>'.$deskripsi.'</td>
                 <td>'.$penggalang_dana.'</td>   
@@ -102,10 +87,12 @@
     }
 
 ?> 
-        
-</table>
 
-<ul>
-    <li><button><a href="dashboard.php">data user</a></button></li>
-    <li><button><a href="data_donatur.php">data donatur</button></a></li>
-</ul>
+        </table>
+
+    </div>
+
+
+
+</body>
+</html>

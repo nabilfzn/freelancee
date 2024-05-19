@@ -1,70 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin-template.css">
+</head>
+<body>
+    <div id="kiri">
+        <nav>
+            <div class="navbox">
+                <div class="nav-item">
+                    <ul>
+                        <li><a href=""><button>Data BPS</button></a></li>
+                        <li><a href="data_donatur.php"><button>Data Donatur</button></a></li>
+                        <li><a href="data_penggalang.php"><button>Data Penggalangan</button></a></li>
+                        <li><a href="../login/logout.php"><button>logout</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="tambahan"></div>
+    <div id="kanan">
 
+        <div class="atas">
+            <a href="phpcrud/create.php"><button>Add data</button></a>
+        </div>
+        
+        <table>
+            <th>No</th>
+            <th>id</th>
+            <th>gambar</th>
+            <th>username</th>
+            <th>email</th>
+            <th>password</th>
+            <th>telephone</th>
+            <th>address</th>
+            <th>level</th>
+            <th>aksi</th>
 
-<style>
-    table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
- 
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-        }
-        th {
-            background-color: rgb(19, 110, 170);
-            color: white;
-
-        }
-
-        .btn {
-            margin-top: 30px;
-        }
-
-        img {
-        max-width: 100%; /* Maksimum lebar gambar adalah 100% dari lebar parent */
-        max-height: 100%; /* Maksimum tinggi gambar adalah 100% dari tinggi parent */
-        height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi dengan lebar */
-}
-
-    .pp {
-        width: 100px;
-    }
-
-    .button {
-        margin-left: 20px;
-    }
-
-</style>
-
-
-
-<h3>Data pengguna</h3>
-
-<table>
-    <th>No</th>
-    <th>id</th>
-    <th>photo</th>
-    <th>username</th>
-    <th>email</th>
-    <th>password</th>
-    <th>telephone</th>
-    <th>address</th>
-    <th>level</th>
-    <th>aksi</th>
-
-    <button class="button"><a href="../login/logout.php">logout</a></button>
-    <button class="button"><a href="../admin/phpcrud/create.php">Add User</a></button>
-
-    <br>
+            <br>
 
 <?php
 
+include_once "../login/koneksi.php";
+if (!isset($_SESSION["email"]) || $_SESSION["level"] !== "admin") {
+    header("Location: ../login/login.php");
+    exit;
+}
 
-
-    require "../login/koneksi.php";
     $no=1;
     $ambil = mysqli_query($conn, "SELECT * from user");
     if ($ambil) {
@@ -99,10 +85,12 @@
     }
 
 ?> 
-        
-</table>
 
-<ul>
-    <li><button><a href="data_penggalang.php">data penggalang dana</a></button></li>
-    <li><button><a href="data_donatur.php">data donatur</button></a></li>
-</ul>
+        </table>
+
+    </div>
+
+
+
+</body>
+</html>

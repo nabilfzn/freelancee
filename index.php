@@ -1,11 +1,10 @@
 <?php
 
-session_start();    
+include_once "login/koneksi.php";
 if (!isset($_SESSION["email"])) {
     header("location:../akhirrrrrrrrrrrr/login/login.php");
     exit;
 }
-
 
 
 
@@ -20,6 +19,15 @@ if (!isset($_SESSION["email"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FindCare</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .pp {
+  border-radius: 20px;
+  /* border: 1px solid black; */
+  width: 35px;
+  height: 35px;
+}
+    </style>
 </head>
 <body>
     <!-- navigasi -->
@@ -37,8 +45,19 @@ if (!isset($_SESSION["email"])) {
                     <li><a href="#goal">goals</a></li>
                 </ul>
                 <div class="button">
-                    <a href="#"><button>login</button></a>
-                    
+                <a class="pp" href="profile/profile.php"><?php
+
+                        $qry = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '{$_SESSION['id_user']}'");
+                        $baris = mysqli_fetch_assoc($qry);
+                        $pp = $baris["photo_profile"];
+                        $profile = "profile/file-pp/$pp";
+
+                        if (isset($_SESSION["email"])) {
+                            echo "<img class='pp' src='$profile' alt=''>";
+                        } else {
+                            echo "<a href='../akhirrrrrrrrrrrr/login/login.php'><button>login</button></a>";
+                        }
+                ?></a>
                 </div>
             </div>
         </div>  

@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    font-family: "poppins";
+    background-color: #F5F5F5;
+}
+
+/* navbar */
+
+#kiri {
+    background-color: #373737;
+    height: 100vh;
+    width: 40vh;
+    /* margin: auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+}
+
+.tambahan {
+    background-color: aqua;
+    width: 25%;
+}
+
+nav {
+    background-color: #D9D9D9;
+    height: 70%;
+    width: 80%;
+    display: flex;
+    border-radius: 5px;
+}
+
+.navbox {
+    /* background-color: aliceblue; */
+    margin: auto;
+}
+
+.navbox .nav-item ul li {
+    list-style: none;
+}
+
+.navbox ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.navbox ul li button {
+    border: none;
+    width: 200px;
+    height: 50px;
+    background-color: #A1A1A1;
+    font-family: "poppins";
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.navbox ul li button:hover {
+    box-shadow: 7px 10px 20px #a1a1a131;
+    transform: scale(1.1);
+}
+
+/* navbar */
+
+    table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+ 
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+        th {
+            background-color: rgb(19, 110, 170);
+            color: white;
+
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+
+        .td { 
+            /* background-color: aqua; */
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            gap: 10px;
+        }
+
+        img {
+        max-width: 100%; /* Maksimum lebar gambar adalah 100% dari lebar parent */
+        max-height: 100%; /* Maksimum tinggi gambar adalah 100% dari tinggi parent */
+        height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi dengan lebar */
+}
+
+    .pp {
+        width: 100px;
+    }
+
+    .button {
+        margin-left: 20px;
+    }
+
+#kanan {
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 70px;
+}
+
+button {
+    background-color: #373737;
+    font-family: poppins;
+    color: white;
+    border: none;
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    /* margin-bottom: 100px; */
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+button:hover {
+    box-shadow: 4px 4px 1px #a1a1a172;
+}
+

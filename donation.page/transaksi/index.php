@@ -56,24 +56,24 @@
             <div class="atas">
                 <form action="" method="post">
                 <input type="hidden" name="id_donasi" value="<?php $_SESSION["id_user"]?>"> 
-                    <input type="text" placeholder="   masukan Penerima donasi">
+                    <input type="text" name="telephone" placeholder="masukan Nomor telephone">
                     <br>
-                    <input type="text" placeholder="   masukan deskripsi donasi">
+                    <input type="text" name="nama_donatur" placeholder="masukan nama donatur">
                     <br>
-                    <input type="text" placeholder="   masukan nomor telphone">
+                    <input type="text" name="alamat" placeholder="masukan alamat">
                     <br>
-                    <input type="text" placeholder="   masukan nomor rekening">
+                    <input type="text" name="atm" placeholder="masukan nomor rekening">
                     <br>
-                    <input type="text" placeholder="   masukan nominal">
-                </form>
-            </div>   
-                    <div class="bawah">
-                        <div class="btn">
-                            <a href="../index.php"><button>back</button></a>
-                            <a href="#"><button>donate</button></a>
-                        </div>
+                    <input type="text" name="nominal" placeholder="masukan nominal">
+                </div>   
+                <div class="bawah">
+                    <div class="btn">
+                        <a href="../index.php"><button>back</button></a>
+                        <button type="submit" name="payment">donate</button>
                     </div>
-             </div>
+                </div>
+            </div>
+        </form>
         </div>
     </div>
 

@@ -60,56 +60,55 @@ while ($data = mysqli_fetch_array($user)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
-
-<style>
-img {
-    max-width: 100%; /* Maksimum lebar gambar adalah 100% dari lebar parent */
-    max-height: 100%; /* Maksimum tinggi gambar adalah 100% dari tinggi parent */
-    height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi dengan lebar */
-}
-
-.pp {
-    width: 100px;
-}
-</style>
+    <title>Document</title>
+    <link rel="stylesheet" href="galang-dana.css">
 </head>
 <body>
-    <h1>Edit User</h1>
-
-    <form action="" method="post" enctype="multipart/form-data">
-    <ul>
-        <input type="hidden" name="id" id="username" required value= "<?php echo $data['id_user']?>">
-
-        <li><label for="username">Username :</label>
-        <input type="text" name="username" id="username" required value= "<?php echo $data['username']?>"></li>
-
-        <li><label for="email">Email :</label>
-        <input type="email" name="email" id="email" required value= "<?php echo $data['email']?>"></li>
-
-        <li><label for="password">Password :</label>
-        <input type="text" name="password" id="password" required value= "<?php echo $data['password']?>"></li>
-
-        <li><label for="telephone">Telephone :</label>
-        <input type="text" name="telephone" id="telephone" required value= "<?php echo $data['telephone']?>"></li>
-
-        <li><label for="address">Address :</label>
-        <input type="text" name="address" id="address" required value= "<?php echo $data['address']?>"></li>
-
-        <li><label for="photo_profile">Profile :</label>
-        <input type="file" name="gambar" id="photo_profile">
-        <input type="hidden" name="photo_profile" value="<?php echo $data['photo_profile']; ?>">
-        <?php 
-        echo "<img class='pp' src='../../profile/file-pp/".$data["photo_profile"]."'>";
-        ?>
-        </li>
-
-        <li><label for="level">Level :</label>
-        <input type="text" name="level" id="level" required value= "<?php echo $data['level']?>"></li>
-
-        <li><button type="submit" name="edit">Edit User</button></li>
-    </ul>
-    </form>
+    
+    <div id="page">
+        <div class="box">
+            <div class="atas">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" id="username" required value= "<?php echo $data['id_user']?>">
+                    <br>
+                    <label for="username">Username :</label>
+                    <input type="text" name="username" id="username" required value= "<?php echo $data['username']?>">
+                    <br>
+                    <label for="email">Email :</label>
+                    <input type="email" name="email" id="email" required value= "<?php echo $data['email']?>">
+                    <br>
+                    <label for="password">password :</label>
+                    <input type="password" name="password" id="password" required value= "<?php echo $data['password']?>">
+                    <br>
+                    <label for="telephone">telephone :</label>
+                    <input type="text" name="telephone" id="telephone" required value= "<?php echo $data['telephone']?>">
+                    <br>
+                    <label for="address">alamat :</label>
+                    <input type="text" name="address" id="address" required value= "<?php echo $data['address']?>">
+                    <br>
+                    <input type="hidden" name="photo_profile" value="<?php echo $data['photo_profile']; ?>">
+                    <br>
+                    <label for="gambar">profile :</label>
+                    <input type="file" name="gambar" id="gambar">
+                    <?php 
+                    echo "<img class='pp' src='../../profile/file-pp/".$data["photo_profile"]."'>";
+                    ?>
+                    <br>
+                    <label for="level">level :</label>
+                    <input type="text" name="level" id="level" required value= "<?php echo $data['level']?>">
+                </div>   
+                <div class="bawah">
+                    <div class="btn">
+                        <a href=""><button>back</button></a>
+                        <div class="s">
+                            <button type="submit" name="edit">edit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

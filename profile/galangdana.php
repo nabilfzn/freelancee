@@ -1,31 +1,10 @@
 <?php
     require "../login/koneksi.php";
 
-    $query = "
-    SELECT 
-        donasi.id_donasi, 
-        donasi.judul, 
-        donasi.penerima, 
-        donasi.deskripsi, 
-        donasi.gambar, 
-        donasi.id_penggalang_dana, 
-        donasi.waktu, 
-        COUNT(payment.id_payment) AS berapa_kali
-    FROM 
-        donasi
-    INNER JOIN 
-        payment ON donasi.id_donasi = payment.id_donasi
-    WHERE 
-        payment.id_user = {$_SESSION["id_user"]}
-    GROUP BY 
-        donasi.id_donasi, 
-        donasi.judul, 
-        donasi.penerima, 
-        donasi.deskripsi, 
-        donasi.gambar, 
-        donasi.id_penggalang_dana, 
-        donasi.waktu
-";
+    $query = "SELECT donasi.id_donasi, donasi.judul, donasi.penerima, donasi.deskripsi, donasi.gambar, donasi.id_penggalang_dana, donasi.waktu, user.id_user
+    FROM user
+    INNER JOIN donasi ON user.id_user = donasi.id_penggalang_dana
+    WHERE donasi.id_penggalang_dana = {$_SESSION["id_user"]}";
 
     $hasil = mysqli_query($conn, $query);
 
@@ -99,7 +78,6 @@
                 $penerima = $row['penerima'];
                 $deskripsi = $row['deskripsi'];
                 $gambar = $row['gambar'];
-                $jumlah = $row['berapa_kali'];
                 $_SESSION['id_donasi'] = $row['id_donasi'];
                 ?>
                 <!-- // format html -->
@@ -114,10 +92,6 @@
                     
                     <div class="card-content">
                         <h2 class="card-title"><?php echo $judul ?></h2>
-                    </div>
-                    
-                    <div class="ling">
-                        <h2 class="card-title"><?php echo $jumlah ?>X</h2>
                     </div>
                 </div>
                <?php }?>

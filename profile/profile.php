@@ -32,9 +32,10 @@ $row = mysqli_fetch_assoc($query) ;
             <div class="navbox">
                 <div class="nav-item">
                     <ul>
+                        <li><a href="https://lookerstudio.google.com/reporting/620c7319-713b-401c-893e-ff3f00967174" target="_blank"><button>data analisis</button></a></li>
                         <li><a href="edit-profile.php"><button>edit profile</button></a></li>
                         <li><a href="riwayat.php"><button>riwayat donasi</button></a></li>
-                        <li><a href=""><button>galang dana</button></a></li>
+                        <li><a href="galangdana.php"><button>galang dana</button></a></li>
                         <li><a href="../donation.page/index.php"><button>kembali</button></a></li>
                         <li><a href="../login/logout.php"><button>logout</button></a></li>
                     </ul>

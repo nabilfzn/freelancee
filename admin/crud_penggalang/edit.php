@@ -1,21 +1,65 @@
 <?php
 require '../../login/koneksi.php';
 
-if(isset($_POST['edit'])){	
-    $id = $_POST['id'];
-    $judul = $_POST['judul'];
-    $penerima = $_POST['penerima'];
-    $deskripsi = $_POST['deskripsi'];
+if(isset($_POST["edit"])) {
+    $id = htmlspecialchars($_POST['id']);
+    $judul = htmlspecialchars($_POST['judul']);
+    $penerima = htmlspecialchars($_POST['penerima']);
+    $deskripsi = htmlspecialchars($_POST['deskripsi']);
+    $waktu = date('Y-m-d H:i:s');
 
+    $file = $_FILES['gambar'];
+    $fileName = $_FILES['gambar']['name'];
+    $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION)); // Mengambil ekstensi file dengan fungsi pathinfo()
+    $ekstentionAllowed = array('png', 'jpg', 'jpeg');
+    $fileSize = $_FILES['gambar']['size'];
+    $fileTmp = $_FILES['gambar']['tmp_name'];
 
-    $result = mysqli_query($conn, "UPDATE donasi SET 
-        judul = '$judul',
-        penerima = '$penerima',
-        deskripsi = '$deskripsi'
-        WHERE id_donasi = $id");
+if (!empty($fileName)) {
+    if (!in_array($fileExtention, $ekstentionAllowed)) {
+        echo "tipe file tidak sesuai (png, jpg, jpeg)";
+        exit();
+    }
 
-    header("Location: ../data_penggalang.php");
+    if ($fileSize < 6000000) {
+        move_uploaded_file($fileTmp, '../../file/'. $fileName);
+    } else {
+        echo "Gambar terlalu besar";
+        exit();
+    }
+} else {
+    $fileName = $_POST['photo_profile'];
+
 }
+
+    $result_donasi= mysqli_query($conn, "UPDATE donasi SET 
+    
+    judul = '$judul',
+    penerima = '$penerima',
+    deskripsi = '$deskripsi',
+    gambar = '$fileName'
+    
+    where id_donasi = $id");
+
+if ($result_donasi) {
+    echo "<script> alert('data berhasil diupdate')
+    document.location.href = '../data_penggalang.php' </script>";
+    exit();
+} else {
+    echo "Gagal mengupdate data";
+}
+} else {
+mysqli_error($conn);
+}
+
+
+
+
+
+
+
+
+
 
 ?>
 
@@ -42,26 +86,49 @@ img {
     width: 100px;
 }
 </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../phpcrud/galang-dana.css">
 </head>
 <body>
-    <h1>Edit User</h1>
+    
+    <div id="page">
+        <div class="box">
+            <div class="atas">
+                <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" required value= "<?php echo $data['id_donasi']?>">
 
-    <form action="" method="post">
-    <ul>
-        <input type="hidden" name="id" required value= "<?php echo $data['id_donasi']?>">
+                    <label for="judul">judul :</label>
+                    <input type="text" name="judul" id="judul" required value= "<?php echo $data['judul']?>">
 
-        <li><label for="judul">judul :</label>
-        <input type="text" name="judul" id="judul" required value= "<?php echo $data['judul']?>"></li>
+                    <label for="penerima">penerima :</label>
+                    <input type="text" name="penerima" id="penerima" required value= "<?php echo $data['penerima']?>">
 
-        <li><label for="penerima">penerima :</label>
-        <input type="text" name="penerima" id="penerima" required value= "<?php echo $data['penerima']?>"></li>
+                    <label for="deskripsi">deskripsi :</label>
+                    <input type="textarea" name="deskripsi" id="deskripsi" required value= "<?php echo $data['deskripsi']?>">
 
-        <li><label for="deskripsi">deskripsi :</label>
-        <input type="text" name="deskripsi" id="deskripsi" required value= "<?php echo $data['deskripsi']?>"></li>
-
-        <li><button type="submit" name="edit">Edit data</button></li>
-    </ul>
-    </form>
+                    <input type="hidden" name="photo_profile" value="<?php echo $data['gambar']; ?>">
+                    <img class="pp" src="../../open-donation/file/<?php echo $data["gambar"]?>" alt="">
+                    <br>
+                    ganti gambar : <input type="file" name="gambar">
+                </div>   
+                <div class="bawah">
+                    <div class="btn">
+                        <a href=""><button>back</button></a>
+                        <div class="s">
+                            <button type="submit" name="edit">edit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

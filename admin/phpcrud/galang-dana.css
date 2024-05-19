@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: poppins;
+}
+
+#page {
+    /* background-color: aqua; */
+    height: 100vh;
+    display: flex;
+}
+
+.atas {
+    /* background-color: #27AE60; */
+    display: flex;
+}
+
+.atas form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 30px;
+    margin-top: 30px;
+    /* background-color: #27AE60   ; */
+}
+
+input {
+    width: 400px;
+    height: 45px;
+    border-radius: 20px;
+    font-family: poppins;
+    padding-left: 20px;
+    font-size: 15px;
+    border-color: rgba(83, 82, 82, 0.388);
+
+}
+
+.box {
+    /* background-color: brown; */
+    width: 558px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 10px 10px 20px #0000004a;
+}
+
+
+
+
+.btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    /* background-color: aqua; */
+    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+.btn button {
+    border: none;
+    cursor: pointer;
+    width: 90px;
+    background: #27AE60;
+    font-size: 15px;
+    font-family: poppins;
+    font-weight: 500;
+    border-radius: 20px;
+    color: #fff;
+    height: 35px;
+    transition: all 75ms ease-in-out;
+    margin-top: 30px;
+}
+
+.btn .s button {
+    width: 200px;
+}
+
+.btn button:hover {
+    box-shadow: 0 3px 8px rgba(66, 65, 65, 0.3);
+}
+
+img {
+    max-width: 100%; /* Maksimum lebar gambar adalah 100% dari lebar parent */
+    max-height: 100%; /* Maksimum tinggi gambar adalah 100% dari tinggi parent */
+    height: auto; /* Biarkan tinggi gambar menyesuaikan proporsi dengan lebar */
+}
+
+.pp {
+    width: 100px;
+}

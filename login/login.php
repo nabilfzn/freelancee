@@ -1,11 +1,6 @@
 <?php
  require 'koneksi.php';
 
-if (isset($_SESSION['email'])) {
-    header("location: index.php");
-}
-
-
  if (isset($_POST["login"])) {
   
     $email = $_POST["email"];

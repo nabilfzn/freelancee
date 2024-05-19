@@ -12,7 +12,7 @@ if (create($_POST) > 0) {
     document.location.href = '../dashboard.php';
     
     </script>";
-
+    exit();
 }  else {echo "<script>
 alert('data gagal ditambahkan')
 </script>";
@@ -21,9 +21,9 @@ alert('data gagal ditambahkan')
 }
 
 
+
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,27 +31,38 @@ alert('data gagal ditambahkan')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="galang-dana.css">
 </head>
 <body>
-    <h1>Tambah User Baru</h1>
-
-    <form action="" method="post">
-    <ul>
-        <li><label for="username">username :</label>
-        <input type="text" name="username" id="username" required></li>
-
-        <li><label for="email">email :</label>
-        <input type="email" name="email" id="email" required ></li>
-
-        <li><label for="password">password :</label>
-        <input type="password" name="password" id="password" required></li>
-
-        <li><label for="telephone">telephone :</label>
-        <input type="text" name="telephone" id="telephone" required></li>
-
-        <li><button type="submit" name="submit">Add User</button></li>
-    </ul>
-    </form>
+    
+    <div id="page">
+        <div class="box">
+            <div class="atas">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="username" id="username" placeholder="masukkan username" required>
+                    <br>
+                    <input type="email" name="email" id="email" placeholder="email" required >
+                    <br>
+                    <input type="password" name="password" id="password" placeholder="password" required>
+                    <br>
+                    <input type="text" name="address" id="address" placeholder="masukkan alamat" required>
+                    <br>
+                    <input type="file" name="gambar" id="gambar" required></li>
+                    <br>
+                    <input type="text" name="telephone" id="telephone" placeholder="masukkan telephone" required></li>
+                </div>   
+                <div class="bawah">
+                    <div class="btn">
+                        <a href=""><button>back</button></a>
+                        <div class="s">
+                            <button type="submit" name="submit">galang dana</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
