@@ -192,6 +192,9 @@ $risult = mysqli_query($conn, $query);
 
 <!-- donate -->
 
+<?php include "../footer.php"?>
+
+
 
 </body>
 </html>

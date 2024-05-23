@@ -28,6 +28,13 @@
         <div class="atas">
             <a href="phpcrud/create.php"><button>Add data</button></a>
         </div>
+
+        <form action="" method="get">
+            <label for="cari">Cari :</label>
+            <input type="text" id="Cari" name="search">
+            <input type="submit" value="cari">
+            <a href="dashboard.php"><button type="button">Reset</button></a>
+        </form>
         
         <table>
             <th>No</th>
@@ -51,8 +58,15 @@ if (!isset($_SESSION["email"]) || $_SESSION["level"] !== "admin") {
     exit;
 }
 
-    $no=1;
+if (isset($_GET["search"])) {
+    $cari = $_GET["search"];
+    echo "data yang ditemukan .'$cari'.";
+    $ambil = mysqli_query($conn, "SELECT * FROM user WHERE username LIKE '%".$cari."%'");				
+} else {
+
     $ambil = mysqli_query($conn, "SELECT * from user");
+}
+$no=1;
     if ($ambil) {
         while ($tampilan = mysqli_fetch_assoc($ambil)){
         
@@ -83,6 +97,8 @@ if (!isset($_SESSION["email"]) || $_SESSION["level"] !== "admin") {
             $no++;
         }
     }
+
+
 
 ?> 
 

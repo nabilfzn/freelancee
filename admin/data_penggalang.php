@@ -15,7 +15,7 @@
                         <li><a href=""><button>Data BPS</button></a></li>
                         <li><a href="data_donatur.php"><button>Data Pembayaran</button></a></li>
                         <li><a href="dashboard.php"><button>Data user</button></a></li>
-                        <li><a href=""><button>logout</button></a></li>
+                        <li><a href="../login/logout.php"><button>logout</button></a></li>
                     </ul>
                 </div>
             </div>

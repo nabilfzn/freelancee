@@ -160,5 +160,8 @@ if (!isset($_SESSION["email"])) {
     </div>  
 </div>
 <!-- main 5 -->
+
+<?php include "footer.php"?>
+
 </body>
 </html>
