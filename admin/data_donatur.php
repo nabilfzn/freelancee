@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +48,12 @@
 
 
 require "../login/koneksi.php";
+include_once "../login/koneksi.php";
+if (!isset($_SESSION["email"]) || $_SESSION["level"] !== "admin") {
+    header("Location: ../login/login.php");
+    exit;
+}
+
 $no=1;
 $query = "SELECT 
 p.id_payment, 

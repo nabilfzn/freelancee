@@ -1,6 +1,11 @@
 <?php
 require '../../login/koneksi.php';
 
+if (!isset($_SESSION["email"]) || $_SESSION["level"] !== "admin") {
+    header("Location: ../../login/login.php");
+    exit;
+}
+
 if(isset($_POST["edit"])) {
     $id = htmlspecialchars($_POST['id']);
     $judul = htmlspecialchars($_POST['judul']);

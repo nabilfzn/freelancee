@@ -2,6 +2,10 @@
 
 require "../../login/koneksi.php";
 
+if (!isset($_SESSION["email"]) || $_SESSION["level"] !== "admin") {
+    header("Location: ../../login/login.php");
+    exit;
+}
 
 if(isset($_POST["submit"])) {
 

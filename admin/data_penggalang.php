@@ -47,6 +47,12 @@
 
 
     require "../login/koneksi.php";
+    include_once "../login/koneksi.php";
+if (!isset($_SESSION["email"]) || $_SESSION["level"] !== "admin") {
+    header("Location: ../login/login.php");
+    exit;
+}
+
     $no=1;
     $query = "SELECT d.id_donasi, d.judul, d.gambar, d.penerima, d.deskripsi, DATE_FORMAT(d.waktu,  '%W, %d-%m-%Y') AS waktu, 
                 u.username AS penggalang_dana

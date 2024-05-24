@@ -1,8 +1,11 @@
 <?php
 require "../login/koneksi.php";
-// session_start();
+session_start();
 
-
+if (!isset($_SESSION["email"])) {
+    header("location:../login/login.php");
+    exit;
+}
 
     
 if (isset($_POST["submit"])) {

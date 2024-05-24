@@ -1,6 +1,12 @@
 <?php
 require "../login/koneksi.php";
 
+if (!isset($_SESSION["email"])) {
+    header("location:../login/login.php");
+    exit;
+}
+
+
 $query = "SELECT * FROM donasi";
 $result = mysqli_query($conn, $query);
 

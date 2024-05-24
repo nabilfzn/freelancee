@@ -2,6 +2,11 @@
  
  require "../../login/koneksi.php";
 
+ if (!isset($_SESSION["email"])) {
+    header("location:../../login/login.php");
+    exit;
+}
+
  $id = $_GET ['id'];
  
  if (isset($_POST["payment"])) {

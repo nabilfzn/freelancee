@@ -1,14 +1,5 @@
-<?php
-
-include_once "login/koneksi.php";
-if (!isset($_SESSION["email"])) {
-    header("location:../akhirrrrrrrrrrrr/login/login.php");
-    exit;
-}
 
 
-
-?>
 
 
 
