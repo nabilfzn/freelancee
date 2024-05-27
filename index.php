@@ -33,20 +33,34 @@
                     <li><a href="#goal">goals</a></li>
                 </ul>
                 <div class="button">
-                <a class="pp" href="profile/profile.php"><?php
+                <a class="pp" href="profile/profile.php">
+    <?php
+        include_once "login/koneksi.php";
 
-                        include_once "login/koneksi.php";
-                        $qry = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '{$_SESSION['id_user']}'");
-                        $baris = mysqli_fetch_assoc($qry);
-                        $pp = $baris["photo_profile"];
-                        $profile = "profile/file-pp/$pp";
+            if (isset($_SESSION['id_user'])) {
+            $id_user = mysqli_real_escape_string($conn, $_SESSION['id_user']);
+            
+            $qry = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '$id_user'");
+            
+            if ($qry && mysqli_num_rows($qry) > 0) {
+                $baris = mysqli_fetch_assoc($qry);
+                $pp = $baris["photo_profile"];
+                $profile = "profile/file-pp/$pp";
+                
+                if (isset($_SESSION["email"])) {
+                    echo "<img class='pp' src='$profile' alt=''>";
+                } else {
+                    echo "<a href='../akhirrrrrrrrrrrr/login/login.php'><button>login</button></a>";
+                }
+            } else {
+                echo "<p>Profile not found</p>";
+            }
+        } else {
+            echo "<a href='../akhirrrrrrrrrrrr/login/login.php'><button>login</button></a>";
+        }
+    ?>
+</a>
 
-                        if (isset($_SESSION["email"])) {
-                            echo "<img class='pp' src='$profile' alt=''>";
-                        } else {
-                            echo "<a href='../akhirrrrrrrrrrrr/login/login.php'><button>login</button></a>";
-                        }
-                ?></a>
                 </div>
             </div>
         </div>  
