@@ -107,13 +107,13 @@ li {
 
 /* main */
 
-.banner {
-    width: 1709px;
+#banner {
+    width: 100%;
     height: 102vh;
     background-image: url('aset/header-bg.jpg'); 
-    background-size: 1790px;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: 190% 85%;
+    /* background-position: 0vh ; */
     display: flex;
 }
 

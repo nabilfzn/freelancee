@@ -1,8 +1,5 @@
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +35,7 @@
                 <div class="button">
                 <a class="pp" href="profile/profile.php"><?php
 
+                        include_once "login/koneksi.php";
                         $qry = mysqli_query($conn, "SELECT * FROM user WHERE id_user = '{$_SESSION['id_user']}'");
                         $baris = mysqli_fetch_assoc($qry);
                         $pp = $baris["photo_profile"];
@@ -57,16 +55,17 @@
 <!-- navigasi -->
 
 <!-- main -->
-<div class="banner" >
+<div id="banner">
     <div class="container">
         <div class="content">
-            <h1>From Heart to Heart, <br> Sharing Hope <br> Together</h1>
+        <h1>From Heart to Heart, <br> Sharing Hope <br> Together</h1>
             <div class="btn">
-                <a href="donation.page/index.php"><button>Donate Now</button></a>
+                    <a href="donation.page/index.php"><button>Donate Now</button></a>
             </div>
-        </div>  
+        </div>
     </div>
 </div>
+
 
 <!-- main -->
 

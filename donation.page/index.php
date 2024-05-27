@@ -7,6 +7,49 @@ if (!isset($_SESSION["email"])) {
 }
 
 
+
+
+if (isset($_POST["wish"])) {
+
+    $id_donation = isset($_POST['idw']) ? $_POST['idw'] : '';
+    if ($id_donation == '') {
+    echo "<script>alert('ID donasi tidak ditemukan.')</script>";
+    exit;
+}
+
+$id_user = $_SESSION['id_user'];
+
+$quer = "SELECT * FROM whislist WHERE id_user = $id_user AND id_donation = $id_donation";
+$res = mysqli_query($conn, $quer);
+
+if (mysqli_num_rows($res) > 0) {
+    echo "<script>alert('Produk ini sudah ada di wishlist Anda.')</script>";
+    exit;
+} else {
+    $insert = "INSERT INTO whislist (id_user, id_donation) VALUES ($id_user, $id_donation)";
+    $result_insert = mysqli_query($conn, $insert);
+}
+
+if ($result_insert) {
+    echo "<script>
+    
+    alert('donasi berhasil ditambahkan ke wishlist')
+    document.location.href = 'index.php';
+    
+    </script>";
+    exit;
+} else {
+    echo "<script>
+    
+    alert('donasi berhasil ditambahkan ke wishlist')
+    document.location.href = 'index.php';
+    
+    </script>";
+    exit;
+}
+
+}
+
 $query = "SELECT * FROM donasi";
 $result = mysqli_query($conn, $query);
 
@@ -49,6 +92,7 @@ $risult = mysqli_query($conn, $query);
                         <li><a href="#donate">donate</a></li>
                         <li><a href="#">about</a></li>
                         <li><a href="#goal">news</a></li>
+                        <li><a href="../whistlist/index.php">wishlist</a></li>
                     </ul>
                     <a class="pp" href="../profile/profile.php"><?php 
                     // session_start();
@@ -162,6 +206,9 @@ $risult = mysqli_query($conn, $query);
 
 <div id="donate">
     <div class="container">
+        <div class="search">
+
+        </div>
         <div class="grid-donate">
 
         <?php
@@ -187,8 +234,14 @@ $risult = mysqli_query($conn, $query);
                 </div>
                 <div class="btnd">
                 <a href="../donation.page/donate-page/index.php?id=<?php echo $id ?>">
-                    <button>donate</button>                    
+                    <button>donate</button> 
+                    
                 </a>
+                <form action="" method="post">
+                <button class="bwish" type="submit" name="wish">wishlist</button>
+                <input type="hidden" name="idw" value="<?= $id ?>">
+                </form>
+
                 </div>
             </div>
             <?php }?>
