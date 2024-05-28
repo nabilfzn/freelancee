@@ -103,7 +103,7 @@
                         </div>
                         <div class="grid-item">
                             <div class="atas">
-                            <img src="aset/p2.jpg" alt="">  
+                            <img src="aset/2.jpeg" alt="" width="326px" height="318px">  
                             </div>
                             <div class="bawah">
                             <h1>Embrace</h1>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="grid-item">
                             <div class="atas">
-                            <img src="aset/p2.jpg" alt="">  
+                            <img src="aset/3.jpeg" alt="" width="326px" height="318px">  
                             </div>
                             <div class="bawah">
                             <h1>Embrace</h1>

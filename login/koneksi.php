@@ -13,48 +13,50 @@ session_start();
 
 
 
-
-
-
-
-
 function signup($data) {
     global $conn;
-    
-    $username = $data["username"];
-    $email = $data["email"];
-    $password = $data["password"];
-    $cpassword = $data["cpassword"];
-    $telephone = $data["telephone"] ;
-    $level = "user";
-    // cek email
 
+    $username = mysqli_real_escape_string($conn, $data["username"]);
+    $email = mysqli_real_escape_string($conn, $data["email"]);
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+    $cpassword = mysqli_real_escape_string($conn, $data["cpassword"]);
+    $telephone = mysqli_real_escape_string($conn, $data["telephone"]);
+    $level = "user";
+
+    // Cek email sudah terdaftar atau belum
     $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email'");
 
-    if (mysqli_fetch_assoc($result) ) {
+    if (mysqli_fetch_assoc($result)) {
         echo "<script> 
-                alert('email sudah terdaftar!!'); 
-              </script>"; 
-        return false;      
+                alert('Email sudah terdaftar!!'); 
+              </script>";
+        return false;
     }
 
-    // pengecekan password
-
+    // Pengecekan password
     if ($password !== $cpassword) {
         echo '<script> 
-        alert("password tidak sesuai"); 
-        </script>';
-
-     return false;
+                alert("Password tidak sesuai"); 
+              </script>';
+        return false;
     }
-//  return 1;
 
+    // Hashing password sebelum disimpan
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
        mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$email', '$password', '$telephone', '$level', '', '')");
 
-       return mysqli_affected_rows($conn);
-
+    if (mysqli_query($conn, $query)) {
+        return mysqli_affected_rows($conn);
+    } else {
+        echo "<script> 
+                alert('Terjadi kesalahan pada sistem. Silakan coba lagi nanti.'); 
+              </script>";
+        return false;
+    }
 }
+
+
 
 
 

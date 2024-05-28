@@ -16,11 +16,11 @@
     $rslta = mysqli_fetch_assoc($qrya);
 
     $waktu = date('Y-m-d H:i:s');
-    $telephone = $_POST["telephone"];
-    $donatur = $_POST["nama_donatur"];
-    $alamat = $_POST["alamat"];
-    $atm = $_POST["atm"];
-    $nominal = $_POST["nominal"];
+    $telephone = htmlspecialchars($_POST["telephone"]);
+    $donatur = htmlspecialchars($_POST["nama_donatur"]);
+    $alamat = htmlspecialchars($_POST["alamat"]);
+    $atm = htmlspecialchars($_POST["atm"]);
+    $nominal = htmlspecialchars($_POST["nominal"]);
     $ids = $_SESSION["id_user"];
     $id_donasi = $id;
     // var_dump($waktu, $telephone, $donatur, $alamat, $atm, $nominal, $ids, $id_donasi);
@@ -73,8 +73,8 @@
                 </div>   
                 <div class="bawah">
                     <div class="btn">
-                        <a href="../index.php"><button>back</button></a>
-                        <button type="submit" name="payment">donate</button>
+                    <button><a href="../index.php#donate">back</a></button>
+                    <button type="submit" name="payment">donate</button>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         
 .footer-container {
@@ -31,6 +32,11 @@
 
 .footer-section a {
     text-decoration: none;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
 }
 
 .footer-section a:hover {
@@ -77,31 +83,21 @@
                 <h2>Tentang Kami</h2>
                 <p>Kami adalah perusahaan yang berfokus pada menyediakan solusi terbaik untuk kebutuhan digital Anda. Hubungi kami untuk informasi lebih lanjut.</p>
                 <div class="socials">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/nabilfauzan24?igsh=amVybngyZzh2cjdq" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/qr/5IU4KKOWPCBSJ1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://github.com/nabilfzn" target="_blank"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
-            <div class="footer-section links">
-                <h2>Tautan</h2>
-                <ul>
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Layanan</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Kontak</a></li>
-                </ul>
-            </div>
+
             <div class="footer-section contact">
                 <h2>Kontak Kami</h2>
-                <p><i class="fas fa-envelope"></i> info@contoh.com</p>
-                <p><i class="fas fa-phone"></i> +62 123 456 789</p>
-                <p><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta, Indonesia</p>
+                <p> findcare@gmail.com</p>
+                <p> +62 123 456 789</p>
+                <p> SMK Telkom Sidoarjo</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Contoh Website. All rights reserved.</p>
+            <p>&copy; 2024 FindCare</p>
         </div>
     </footer>
 </body>

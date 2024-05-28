@@ -88,10 +88,9 @@ $risult = mysqli_query($conn, $query);
                 </div>
                 <div class="nav-item">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="#donate">donate</a></li>
-                        <li><a href="#">about</a></li>
-                        <li><a href="#goal">news</a></li>
+                    <li><a href="../index.php">home</a></li>
+                        <li><a href="../aboutme.php">about</a></li>
+                        <li><a href="#news">news</a></li>
                         <li><a href="../whistlist/index.php">wishlist</a></li>
                     </ul>
                     <a class="pp" href="../profile/profile.php"><?php 
@@ -108,7 +107,7 @@ $risult = mysqli_query($conn, $query);
                     if ($pp != null) {
                       echo "<img class='pp' src='$profile' alt=''>";
                     }else {
-                      echo "<img src='user.png' alt=''>";
+                      echo "<img class='pp' src='user.png' alt=''>";
                     }
                     
                     ?></a>
@@ -153,14 +152,14 @@ $risult = mysqli_query($conn, $query);
             <div class="grid">
                 <div class="grid-item">
                     <div class="atas">
-                    <img src="../aset/p2.jpg" alt="">                             </div>
+                    <img src="../aset/give.jpg" alt="">                             </div>
                     <div class="bawah">
                     <h1>Peduli Sesama</h1>
                     <p>We are determined to be a bridge for various <br> groups in need, realizing social inclusion and <br> humanity. From disadvantaged children to <br> adults facing adversity, </p>                        </div>
                 </div>
                 <div class="grid-item">
                     <div class="atas">
-                    <img src="../aset/p2.jpg" alt="">                             </div>
+                    <img src="../aset/daru.jpg" alt="">                             </div>
                     <div class="bawah">
                     <h1>Peduli Sesama</h1>
                     <p>We are determined to be a bridge for various <br> groups in need, realizing social inclusion and <br> humanity. From disadvantaged children to <br> adults facing adversity, </p>                        </div>

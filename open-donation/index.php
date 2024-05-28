@@ -1,6 +1,6 @@
 <?php
 require "../login/koneksi.php";
-session_start();
+// session_start();
 
 if (!isset($_SESSION["email"])) {
     header("location:../login/login.php");
@@ -10,9 +10,9 @@ if (!isset($_SESSION["email"])) {
     
 if (isset($_POST["submit"])) {
     $waktu = date('Y-m-d H:i:s');
-    $judul = $_POST['judul'];
-    $penerima = $_POST['penerima'];
-    $deskripsi = $_POST['deskripsi'];
+    $judul = htmlspecialchars($_POST['judul']);
+    $penerima = htmlspecialchars($_POST['penerima']);
+    $deskripsi = htmlspecialchars($_POST['deskripsi']);
     $uid = $_SESSION['id_user'];
 
 
@@ -33,12 +33,14 @@ if (isset($_POST["submit"])) {
     }
 
     if ($fileSize < 6000000) {
-        move_uploaded_file($fileTmp, 'file/'. $fileName);
-    } else {
-        echo "Gambar terlalu besar";
-    }
+        $newFileName = uniqid() . '.' . $fileExtention;
+        move_uploaded_file($fileTmp, 'file/' . $newFileName);
+        
+        if (!is_dir('file')) {
+            mkdir('file', 0777, true);
+        }
 
-    $result_donasi = mysqli_query($conn, "INSERT INTO donasi VALUES ('', '$judul', '$penerima', '$deskripsi', '$fileName', '$uid', '$waktu')");
+    $result_donasi = mysqli_query($conn, "INSERT INTO donasi VALUES ('', '$judul', '$penerima', '$deskripsi', '$newFileName', '$uid', '$waktu')");
 
     if ($result_donasi) {
         echo "<script> alert('donasi     berhasil ditambahkan')
@@ -52,7 +54,7 @@ if (isset($_POST["submit"])) {
     mysqli_error($conn);
 }
 
-
+}
 ?>
 
 

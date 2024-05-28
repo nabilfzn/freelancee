@@ -86,6 +86,9 @@ nav {
         }
         th, td {
             padding: 10px;
+            word-wrap: break-word; /* Memungkinkan kata-kata panjang dipotong */
+            overflow-wrap: break-word; /* Mendukung berbagai browser */
+            max-width: 20vh;
         }
         th {
             background-color: rgb(19, 110, 170);
@@ -104,6 +107,9 @@ nav {
             display: flex;
             gap: 10px;
         }
+
+
+
 
         img {
         max-width: 100%; /* Maksimum lebar gambar adalah 100% dari lebar parent */

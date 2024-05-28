@@ -16,7 +16,7 @@ if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
 
 
-                if ($password == $row["password"]) {
+                if (password_verify($password, $row['password'])) {
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['level'] = $row['level'];
 
@@ -36,9 +36,12 @@ if (mysqli_num_rows($result) === 1) {
                      }
 
                 } else {
-                        echo '<script> 
-                    alert("password atau email salah")
-                    </script>';
+                    echo "<script>
+    
+                    alert('email atau password salah')
+                    document.location.href = 'login.php';
+                    
+                    </script>";
 
                     exit;
                 }

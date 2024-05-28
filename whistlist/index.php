@@ -59,10 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["wish"])) {
                 </div>
                 <div class="nav-item">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="#donate">donate</a></li>
-                        <li><a href="#">about</a></li>
-                        <li><a href="#goal">news</a></li>
+                        <li><a href="../index.php">home</a></li>
+                        <li><a href="../donation.page/index.php#donate">donate</a></li>
+                        <li><a href="../aboutme.php">about</a></li>
+                        <li><a href="../donation.page/index.php#news">news</a></li>
                         <li><a href="../whistlist/index.php">wishlist</a></li>
                     </ul>
                     <a class="pp" href="../profile/profile.php"><?php 

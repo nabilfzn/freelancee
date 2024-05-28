@@ -41,8 +41,8 @@
             <th>id</th>
             <th>gambar</th>
             <th>username</th>
-            <th>email</th>
             <th>password</th>
+            <th>email</th>
             <th>telephone</th>
             <th>address</th>
             <th>level</th>
@@ -84,8 +84,8 @@ $no=1;
                 <td>'.$id.'</td>
                 <td class="pp">'.$photo.'</td>
                 <td>'.$username.'</td>
-                <td>'.$email.'</td>
                 <td>'.$password.'</td>
+                <td>'.$email.'</td>
                 <td>'.$telephone.'</td>   
                 <td>'.$address.'</td>   
                 <td>'.$level.'</td>   

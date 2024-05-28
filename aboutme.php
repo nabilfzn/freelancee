@@ -32,7 +32,7 @@ if (!isset($_SESSION["email"])) {
                 </div>
                 <div class="kanan">
                     <div class="img">
-                        <img src="fotoweb.png">
+                        <img src="aset/fotoweb.png">
                     </div>
                 </div>
             </div>
@@ -50,38 +50,38 @@ if (!isset($_SESSION["email"])) {
 
             <div class="boxc">
                 <div class="box">
-                    <img src="school.png">
+                    <img src="aset/school.png">
                     <h3>Sekolah</h3>
                     <p>Nabil adalah Siswa aktif dari salah satu sekolah yang berada di sidoarjo yaitu SMK Telkom Sidoarjo</p>
                 </div>
                 <div class="box">
-                    <img src="creative-thinking.png">
+                    <img src="aset/creative-thinking.png">
                     <h3>Keahlian</h3>
                     <p>Saya Menguasai beberapa Software yaitu Ms Word, VS Code, Ms power point, canva. saya juga sedang belajar tentang programming</p>
                 </div>
                 <div class="box">
-                    <img src="hobbies.png">
+                    <img src="aset/hobbies.png">
                     <h3>Hobi</h3>
                     <p>Hobi saya yang utama adalah bersepeda. selain bersepeda saya juga suka menulis, fotografi, dan membaca buku</p>
                 </div>
                 <div class="box">
-                    <img src="user-experience.png">
+                    <img src="aset/user-experience.png">
                     <h3>Pengalaman</h3>
                     <p>Saya Pernah menjabat sebagai Wakil Ketua Osis pada masa SMP dan juga saya sebagai Jurnalis di SMP saya dahulu</p>
                 </div>
                 <div class="box">
-                    <img src="interest.png">
+                    <img src="aset/interest.png">
                     <h3>Minat</h3>
                     <p>Saya memiliki ketertarikan pada bidang teknologi, selain teknologi saya tertarik pada ilmu Psikologi dan juga filsafat  </p>
                 </div>
                 <div class="box">
-                    <img src="cv.png">
+                    <img src="aset/cv.png">
                     <h3>Curriculum Vitae</h3>
                     <p>Berikut adalah CV saya</p>
                     <div class="cv"><a href="cv nabil asli.pdf" target="_blank">Klik</a></div>
 
             </div>
-            <a class="link"  href="../akhirrrrrrrrrrrr/index.php"><h1>Kembali</h1></a>
+            <a class="link"  href="index.php"><h1>Kembali</h1></a>
         </div>
     </div>
 </section>
